@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DeepLook ROV - Detailed technical documentation of the 6-DOF underwater vehicle project by Bassam Sassi.">
+    <title>DeepLook ROV | Technical Details - Bassam Sassi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">BASSAM<span>SASSI</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="deeplook.html" class="active">DeepLook</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certifications.html">Certifications</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="min-height: 60vh; padding-top: 100px;">
+        <div class="hero-content">
+            <div class="hero-badge">🌊 PFE 2026 — Mention Très Bien (18.2/20)</div>
+            <h1 class="hero-title">
+                <span class="highlight">DeepLook</span> ROV
+            </h1>
+            <p class="hero-subtitle">
+                A 6-Degree-of-Freedom Underwater Remotely Operated Vehicle <br>
+                Designed, simulated, and built from scratch in Medenine, Tunisia.
+            </p>
+            <div class="hero-buttons">
+                <a href="#gallery" class="btn btn-primary">📸 View Gallery</a>
+                <a href="#specs" class="btn btn-secondary">📋 Specifications</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Overview -->
+    <section class="section" id="overview">
+        <div class="section-header fade-in">
+            <span class="section-label">Project Overview</span>
+            <h2 class="section-title">From Concept to Reality</h2>
+            <p class="section-desc">
+                DeepLook evolved from a 3-thruster simulation to a fully operational 6-DOF prototype, 
+                combining mechanical design, embedded electronics, and control systems.
+            </p>
+        </div>
+        <div class="card-grid">
+            <div class="card fade-in">
+                <div class="card-icon">🎯</div>
+                <h3 class="card-title">Objective</h3>
+                <p class="card-text">
+                    Design and build a low-cost, high-performance underwater ROV capable of 
+                    6-DOF movement for marine exploration, inspection, and research applications 
+                    in Tunisian coastal waters.
+                </p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">⏱️</div>
+                <h3 class="card-title">Timeline</h3>
+                <p class="card-text">
+                    <strong>Jan 2026 – Jun 2026</strong><br>
+                    6 months from concept to working prototype. Supervised by 
+                    <strong>Madame Hazar</strong> at ISET Djerba.
+                </p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">🏆</div>
+                <h3 class="card-title">Result</h3>
+                <p class="card-text">
+                    <strong>Mention Très Bien — 18.2/20</strong><br>
+                    Ranked <strong>3rd in the department</strong>. Fully operational prototype 
+                    with validated waterproofing and wireless control.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="section" id="specs" style="background: var(--bg-secondary);">
+        <div class="section-header fade-in">
+            <span class="section-label">Technical Details</span>
+            <h2 class="section-title">Specifications & Architecture</h2>
+        </div>
+
+        <!-- Mechanical -->
+        <div style="margin-bottom: 4rem;">
+            <h3 style="color: var(--accent-cyan); font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">🔧 Mechanical Design</h3>
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">📐</div>
+                    <h3 class="card-title">Chassis Design</h3>
+                    <p class="card-text">
+                        Hydrodynamic chassis designed in SOLIDWORKS with optimized flow characteristics. 
+                        Central control pod, battery cradle, and 6-DOF thruster mounts.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">SOLIDWORKS</span>
+                        <span class="tag">CFD</span>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🌀</div>
+                    <h3 class="card-title">Thruster Nozzles</h3>
+                    <p class="card-text">
+                        Custom-designed and 3D-printed thruster nozzles for optimal water flow. 
+                        6 motors arranged for full 6-DOF control: 4 vertical + 2 horizontal.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">DFAM</span>
+                        <span class="tag tag-green">3D Printing</span>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🌊</div>
+                    <h3 class="card-title">CFD Analysis</h3>
+                    <p class="card-text">
+                        Flow Simulation analysis: velocity vector mapping, drag coefficient 
+                        optimization, and acoustic signature reduction for stealth operation.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag tag-orange">Flow Sim</span>
+                        <span class="tag">Analysis</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Electronics -->
+        <div style="margin-bottom: 4rem;">
+            <h3 style="color: var(--accent-orange); font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">⚡ Electronics & Control</h3>
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">🧠</div>
+                    <h3 class="card-title">Control Architecture</h3>
+                    <p class="card-text">
+                        <strong>Arduino Nano</strong> — Real-time motor control & sensor reading<br>
+                        <strong>Raspberry Pi 4</strong> — High-level processing, video streaming, data logging<br>
+                        Serial communication between boards for coordinated operation.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Raspberry Pi</span>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🔌</div>
+                    <h3 class="card-title">Power System</h3>
+                    <p class="card-text">
+                        3× 30A ESCs (Electronic Speed Controllers) for brushless motors. 
+                        Battery management system with voltage monitoring and thermal protection.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag tag-orange">ESC</span>
+                        <span class="tag">Power Mgmt</span>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">📡</div>
+                    <h3 class="card-title">Communication</h3>
+                    <p class="card-text">
+                        Serial communication protocol for motor commands and sensor feedback. 
+                        PS4 controller integration via Bluetooth for wireless operation.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">Serial</span>
+                        <span class="tag">Bluetooth</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Software -->
+        <div>
+            <h3 style="color: var(--accent-green); font-size: 1.5rem; margin-bottom: 1.5rem; text-align: center;">💻 Software Stack</h3>
+            <div class="card-grid">
+                <div class="card fade-in">
+                    <div class="card-icon">🐍</div>
+                    <h3 class="card-title">Python (Raspberry Pi)</h3>
+                    <p class="card-text">
+                        High-level control logic, sensor data processing, video streaming, 
+                        and data logging. Integration with OpenCV for computer vision capabilities.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenCV</span>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🔧</div>
+                    <h3 class="card-title">C/C++ (Arduino)</h3>
+                    <p class="card-text">
+                        Real-time motor control with PID algorithms. PWM signal generation 
+                        for precise thruster speed and direction control.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">C/C++</span>
+                        <span class="tag">PID</span>
+                    </div>
+                </div>
+                <div class="card fade-in">
+                    <div class="card-icon">🎮</div>
+                    <h3 class="card-title">PS4 Controller</h3>
+                    <p class="card-text">
+                        Custom mapping of PS4 controller inputs to ROV movements. 
+                        Low-latency response for intuitive piloting experience.
+                    </p>
+                    <div class="project-tags mt-2">
+                        <span class="tag">HID</span>
+                        <span class="tag">Wireless</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery">
+        <div class="section-header fade-in">
+            <span class="section-label">Visual Documentation</span>
+            <h2 class="section-title">DeepLook Gallery</h2>
+            <p class="section-desc">Click any image to view in full size.</p>
+        </div>
+        <div class="gallery-grid fade-in">
+            <div class="gallery-item">
+                <img src="images/deeplook-cad.jpg" alt="SOLIDWORKS CAD - Exploded View of DeepLook">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">SOLIDWORKS CAD Design</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-prototype-top.jpg" alt="DeepLook Prototype - Top View">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Prototype Top View</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-prototype-side.jpg" alt="DeepLook Prototype - Side View">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Prototype Side View</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-electronics.jpg" alt="Electronics - Raspberry Pi & ESCs">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Electronics Assembly</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-raspberry.jpg" alt="Raspberry Pi 4 Close-up">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Raspberry Pi 4</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-testing.jpg" alt="Testing Setup with Power Supply">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Testing & Calibration</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-workstation.jpg" alt="Development Workstation">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Development Workstation</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/deeplook-waterproof.jpg" alt="Waterproofing Test">
+                <div class="gallery-overlay">
+                    <div class="gallery-title">Waterproofing Test</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolution Timeline -->
+    <section class="section" style="background: var(--bg-secondary);">
+        <div class="section-header fade-in">
+            <span class="section-label">Development Journey</span>
+            <h2 class="section-title">From 3 to 6 Thrusters</h2>
+        </div>
+        <div class="timeline fade-in">
+            <div class="timeline-item">
+                <div class="timeline-date">January 2026</div>
+                <div class="timeline-title">Project Initiation</div>
+                <div class="timeline-desc">
+                    Defined project scope: design a low-cost underwater ROV for Tunisian waters. 
+                    Initial research on thruster configurations and waterproofing methods.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">February 2026</div>
+                <div class="timeline-title">3-Thruster Simulation</div>
+                <div class="timeline-desc">
+                    First CAD model with 3-thruster configuration. Basic hydrodynamic analysis 
+                    and initial flow simulation in SOLIDWORKS.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">March 2026</div>
+                <div class="timeline-title">Design Evolution to 6-DOF</div>
+                <div class="timeline-desc">
+                    Upgraded to 6-thruster configuration for full 6-DOF control. Redesigned 
+                    chassis, thruster mounts, and control pod. DFAM optimization for 3D printing.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">April 2026</div>
+                <div class="timeline-title">Prototype Assembly</div>
+                <div class="timeline-desc">
+                    3D printing of all components, electronics integration, wiring, and initial 
+                    bench testing. ESC calibration and motor synchronization.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">May 2026</div>
+                <div class="timeline-title">Testing & Validation</div>
+                <div class="timeline-desc">
+                    Waterproofing tests, hydrostatic pressure validation, wireless control testing, 
+                    and performance optimization. PS4 controller integration.
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">June 2026</div>
+                <div class="timeline-title">PFE Defense — 18.2/20</div>
+                <div class="timeline-desc">
+                    Final presentation and defense. Mention Très Bien with departmental ranking 
+                    of 3rd place. Fully operational prototype demonstrated.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Work -->
+    <section class="section">
+        <div class="section-header fade-in">
+            <span class="section-label">What's Next</span>
+            <h2 class="section-title">Future Development</h2>
+        </div>
+        <div class="card-grid">
+            <div class="card fade-in">
+                <div class="card-icon">🤖</div>
+                <h3 class="card-title">AUV Autonomy</h3>
+                <p class="card-text">
+                    Transition from ROV (tethered) to AUV (autonomous) operation. 
+                    Implement SLAM algorithms for autonomous navigation and mapping.
+                </p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">📷</div>
+                <h3 class="card-title">Computer Vision</h3>
+                <p class="card-text">
+                    Integrate AI-based object detection for marine life identification, 
+                    seabed analysis, and obstacle avoidance using OpenCV and TensorFlow.
+                </p>
+            </div>
+            <div class="card fade-in">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Sensor Suite</h3>
+                <p class="card-text">
+                    Add environmental sensors: depth, temperature, salinity, turbidity, 
+                    and dissolved oxygen for comprehensive water quality monitoring.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">BASSAM<span>SASSI</span></div>
+            <p class="footer-text">Mechatronics Engineer | Underwater Robotics | CAD Specialist</p>
+            <div class="footer-social">
+                <a href="https://linkedin.com/in/bassam-sassi" target="_blank">💼</a>
+                <a href="https://github.com/BSM8SASSI" target="_blank">🐙</a>
+                <a href="mailto:bassamesassi@gmail.com">📧</a>
+            </div>
+            <p class="footer-copy">© 2026 Bassam Sassi. Built with passion in Tunisia 🇹🇳</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
