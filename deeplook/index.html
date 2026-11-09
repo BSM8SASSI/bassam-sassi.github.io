@@ -71,7 +71,7 @@ header::after{content:"";position:absolute;inset:0;background:repeating-linear-g
 .stat span{color:#9fb6c8;font-size:.92rem}
 
 /* CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
 .card{background:#fff;border:1px solid #e3ebf2;border-radius:var(--radius);padding:30px;transition:transform .3s,box-shadow .3s,border-color .3s}
 .card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(6,34,58,.12);border-color:var(--teal)}
 .card .ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:.95rem;font-weight:800;color:var(--deep);background:linear-gradient(135deg,rgba(20,211,192,.15),rgba(56,189,248,.15));margin-bottom:18px}
@@ -264,31 +264,33 @@ footer a{color:#9fb6c8}
 
 <section class="alt"><div class="wrap">
   <span class="eyebrow reveal">Business model</span>
-  <h2 class="reveal">Start with a service. Grow into recurring revenue.</h2>
-  <div class="grid" style="margin-top:40px">
-    <div class="card reveal"><div class="ico">1</div><h3>Inspection as a Service</h3><p>We inspect for the farm. No upfront cost for the customer: the fastest way to prove value and win trust.</p></div>
-    <div class="card reveal d1"><div class="ico">2</div><h3>Drone + subscription</h3><p>Farms that want to inspect themselves buy the ROV with training, maintenance and software in a yearly plan.</p></div>
-    <div class="card reveal d2"><div class="ico">3</div><h3>Inspection data</h3><p>A history of net condition per cage: useful for maintenance planning, insurers and EU compliance.</p></div>
+  <h2 class="reveal">Not just a drone. A complete underwater service.</h2>
+  <p class="lead reveal">Selling ROVs is only one part of DeepLook. Most of our value comes from the services we deliver around them, with recurring contracts.</p>
+  <div class="grid">
+    <div class="card reveal"><div class="ico">1</div><h3>Inspection as a Service</h3><p>Our team inspects nets, cages and moorings for the farm on a regular schedule, with a 4K video and a report every time. No upfront cost for the customer.</p></div>
+    <div class="card reveal d1"><div class="ico">2</div><h3>Maintenance contracts</h3><p>Yearly contracts to maintain, repair and upgrade the ROVs used by our customers, so their equipment is always ready to dive.</p></div>
+    <div class="card reveal d2"><div class="ico">3</div><h3>Custom solutions</h3><p>Tailor-made underwater systems for marine-sector companies with specific needs: ports, offshore structures, research, special sensors or tools.</p></div>
+    <div class="card reveal d3"><div class="ico">4</div><h3>ROV sales</h3><p>For companies that want their own drone: the ROV with training, delivered with a maintenance contract.</p></div>
   </div>
 </div></section>
 
 <section id="numbers" class="alt"><div class="wrap">
   <span class="eyebrow reveal">The numbers</span>
-  <h2 class="reveal">A simple, fast-growing revenue plan.</h2>
-  <p class="lead reveal">Targets from our 5-year business plan: service-first, then drone sales and subscriptions.</p>
+  <h2 class="reveal">Recurring revenue, growing every year.</h2>
+  <p class="lead reveal">Targets from our 5-year business plan, mixing inspection services, maintenance contracts, custom projects and ROV sales.</p>
   <div class="fin">
     <div class="reveal">
       <div class="bars">
-        <div class="bar" style="--h:17%"><em>€40k</em><i></i><small>Year 1</small><u>15 units</u></div>
-        <div class="bar" style="--h:40%"><em>€97k</em><i></i><small>Year 2</small><u>35 units</u></div>
-        <div class="bar" style="--h:59%"><em>€143k</em><i></i><small>Year 3</small><u>50 units</u></div>
-        <div class="bar" style="--h:85%"><em>€206k</em><i></i><small>Year 4</small><u>70 units</u></div>
-        <div class="bar" style="--h:100%"><em>€243k</em><i></i><small>Year 5</small><u>80 units</u></div>
+        <div class="bar" style="--h:17%"><em>€40k</em><i></i><small>Year 1</small><u>15 contracts</u></div>
+        <div class="bar" style="--h:40%"><em>€97k</em><i></i><small>Year 2</small><u>35 contracts</u></div>
+        <div class="bar" style="--h:59%"><em>€143k</em><i></i><small>Year 3</small><u>50 contracts</u></div>
+        <div class="bar" style="--h:85%"><em>€206k</em><i></i><small>Year 4</small><u>70 contracts</u></div>
+        <div class="bar" style="--h:100%"><em>€243k</em><i></i><small>Year 5</small><u>80 contracts</u></div>
       </div>
     </div>
     <div class="kpis">
       <div class="kpi reveal"><b>~€1,400</b><span>target production cost per ROV (local manufacturing, bulk components)</span></div>
-      <div class="kpi reveal d1"><b>~€2,700</b><span>average revenue per unit or service contract in year 1</span></div>
+      <div class="kpi reveal d1"><b>~€2,700</b><span>average revenue per contract (service, maintenance, project or ROV) in year 1</span></div>
       <div class="kpi reveal d2"><b>&gt;60%</b><span>lower daily inspection cost than a full diving team</span></div>
     </div>
   </div>
@@ -335,7 +337,7 @@ footer a{color:#9fb6c8}
     <div class="tl done reveal"><div class="when">September 2026</div><h4>Incubator Demo Day</h4><p>Pitched at the StarTech Incubator Demo Day (EFE-Tunisia).</p></div>
     <div class="tl done reveal"><div class="when">Autumn 2026</div><h4>Based in Toulon, France</h4><p>The founder joins ISEN Méditerranée, at the heart of France's leading naval and marine-robotics ecosystem.</p></div>
     <div class="tl reveal"><div class="when">2027</div><h4>Pilot farms in Italy and France</h4><p>Field trials with first fish farms, product v2 based on their feedback, incubation and first funding.</p></div>
-    <div class="tl reveal"><div class="when">2028</div><h4>Commercial launch in the Mediterranean EU</h4><p>Italy, Greece and Spain, with a service-first model and local partners.</p></div>
+    <div class="tl reveal"><div class="when">2028</div><h4>Commercial launch in the Mediterranean EU</h4><p>Inspection and maintenance contracts in Italy, Greece and Spain, and first custom projects for marine-sector companies.</p></div>
   </div>
 </div></section>
 
