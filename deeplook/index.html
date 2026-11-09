@@ -5,176 +5,330 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DeepLook – Drones sous-marins pour l'inspection aquacole</title>
 <meta name="description" content="DeepLook conçoit des drones sous-marins (ROV) pour inspecter les fermes aquacoles de façon plus sûre, plus rapide et moins coûteuse.">
+<meta property="og:title" content="DeepLook – Drones sous-marins pour l'aquaculture">
+<meta property="og:description" content="Des ROV conçus pour inspecter filets, cages et structures immergées, sans risquer de vies.">
+<meta property="og:image" content="../img/rov-v1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{--navy:#06223a;--deep:#0b3a5c;--teal:#14b8a6;--light:#f4f8fb;--text:#1e293b;--muted:#5b6b7c}
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);line-height:1.6;background:#fff}
-  a{color:var(--teal)}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-  nav{position:sticky;top:0;background:rgba(6,34,58,.95);backdrop-filter:blur(6px);z-index:10}
-  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
-  nav .logo{color:#fff;font-weight:800;font-size:1.25rem;letter-spacing:.5px}
-  nav .logo span{color:var(--teal)}
-  nav ul{display:flex;gap:22px;list-style:none}
-  nav ul a{color:#cfe3f0;text-decoration:none;font-size:.92rem}
-  nav ul a:hover{color:#fff}
-  header{background:linear-gradient(160deg,rgba(6,34,58,.93) 0%,rgba(11,58,92,.88) 60%,rgba(14,90,122,.8) 100%),url("https://lh3.googleusercontent.com/d/1quUN3gQgiZlCnjWk29wH7azOoGy28-ms") center/cover;color:#fff;padding:110px 0 120px}
-  header h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;max-width:760px}
-  header p{font-size:1.15rem;color:#cfe3f0;max-width:640px;margin:22px 0 34px}
-  .btn{display:inline-block;background:var(--teal);color:#fff;padding:13px 26px;border-radius:8px;text-decoration:none;font-weight:600}
-  .btn.ghost{background:transparent;border:1.5px solid #cfe3f0;margin-left:10px}
+:root{--abyss:#020c18;--navy:#06223a;--deep:#0b3a5c;--teal:#14d3c0;--cyan:#38bdf8;--light:#f3f8fb;--text:#0f1f2e;--muted:#5b6b7c;--radius:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);line-height:1.65;background:#fff;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+h2{font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--navy);margin-bottom:16px;font-weight:800}
+.lead{color:var(--muted);font-size:1.08rem;max-width:660px;margin-bottom:48px}
+section{padding:110px 0;position:relative}
+.alt{background:var(--light)}
+.dark{background:var(--abyss);color:#fff}
+.dark h2{color:#fff}.dark .lead{color:#9fb6c8}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s}
+nav.scrolled{background:rgba(2,12,24,.88);backdrop-filter:blur(12px);box-shadow:0 4px 30px rgba(0,0,0,.25)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
+.logo{color:#fff;font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px}
+.logo i{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--cyan),var(--teal) 45%,var(--deep) 100%);box-shadow:0 0 18px rgba(20,211,192,.6)}
+.logo span{color:var(--teal)}
+nav ul{display:flex;gap:28px;list-style:none;align-items:center}
+nav ul a{color:#cfe3f0;text-decoration:none;font-size:.92rem;font-weight:500;transition:color .2s}
+nav ul a:hover{color:#fff}
+nav .cta{background:var(--teal);color:var(--abyss)!important;padding:9px 18px;border-radius:999px;font-weight:700}
+
+/* HERO */
+header{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;color:#fff;
+  background:radial-gradient(ellipse at 70% 30%,#0e5a7a 0%,transparent 55%),radial-gradient(ellipse at 10% 90%,#0b3a5c 0%,transparent 50%),linear-gradient(180deg,#041a2e 0%,var(--abyss) 100%)}
+header::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(115deg,rgba(56,189,248,.04) 0 2px,transparent 2px 120px);animation:rays 18s linear infinite;pointer-events:none}
+@keyframes rays{to{background-position:600px 0}}
+.bubbles span{position:absolute;bottom:-40px;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.6),rgba(56,189,248,.15));animation:rise linear infinite;opacity:.6}
+@keyframes rise{to{transform:translateY(-115vh) translateX(30px);opacity:0}}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;position:relative;z-index:2;padding-top:80px}
+.hero h1{font-size:clamp(2.3rem,5vw,3.8rem);line-height:1.08;font-weight:800;letter-spacing:-1px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--teal),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:1.15rem;color:#b9cfdf;max-width:540px;margin:24px 0 36px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,var(--teal),var(--cyan));color:var(--abyss);padding:15px 28px;border-radius:999px;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 30px rgba(20,211,192,.35)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(20,211,192,.5)}
+.btn.ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);box-shadow:none;margin-left:12px}
+.btn.ghost:hover{border-color:#fff}
+.hero-img{position:relative}
+.hero-img::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(20,211,192,.45),transparent 65%);filter:blur(40px);animation:pulse 5s ease-in-out infinite}
+.hero-img img{position:relative;border-radius:24px;animation:float 6s ease-in-out infinite;box-shadow:0 30px 80px rgba(0,0,0,.5);mix-blend-mode:normal}
+.hero-img small{position:absolute;bottom:-14px;left:24px;background:rgba(2,12,24,.85);border:1px solid rgba(20,211,192,.4);padding:8px 14px;border-radius:999px;font-size:.8rem;color:#cfe3f0;backdrop-filter:blur(6px)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-18px) rotate(1deg)}}
+@keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;color:#7d97ab;font-size:.8rem;text-align:center}
+.scroll-hint b{display:block;width:22px;height:36px;border:2px solid #7d97ab;border-radius:12px;margin:8px auto 0;position:relative}
+.scroll-hint b::after{content:"";position:absolute;left:50%;top:6px;width:4px;height:8px;background:var(--teal);border-radius:2px;transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{to{transform:translate(-50%,12px);opacity:0}}
+
+/* STATS BAR */
+.stats{background:var(--navy);color:#fff;padding:46px 0}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center}
+.stat b{display:block;font-size:2.3rem;font-weight:800;background:linear-gradient(90deg,var(--teal),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{color:#9fb6c8;font-size:.92rem}
+
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.card{background:#fff;border:1px solid #e3ebf2;border-radius:var(--radius);padding:30px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(6,34,58,.12);border-color:var(--teal)}
+.card .ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;background:linear-gradient(135deg,rgba(20,211,192,.15),rgba(56,189,248,.15));margin-bottom:18px}
+.card h3{color:var(--navy);font-size:1.15rem;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.97rem}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+.dark .card h3{color:#fff}.dark .card p{color:#9fb6c8}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.split img{border-radius:var(--radius);box-shadow:0 30px 70px rgba(6,34,58,.18)}
+.checks{list-style:none;margin-top:20px}
+.checks li{padding:10px 0 10px 36px;position:relative;color:var(--text)}
+.checks li::before{content:"✓";position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;font-size:.8rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.compare div{border-radius:12px;padding:18px}
+.compare .old{background:#fff1f1;border:1px solid #f6d4d4}
+.compare .new{background:#e8fbf8;border:1px solid #b6efe6}
+.compare h4{font-size:.95rem;margin-bottom:6px}
+.compare p{font-size:.9rem;color:var(--muted)}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.gallery figure{position:relative;overflow:hidden;border-radius:var(--radius);cursor:zoom-in;background:#0b2236}
+.gallery figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 18px 14px;background:linear-gradient(transparent,rgba(2,12,24,.9));color:#fff;font-size:.88rem;font-weight:500;transform:translateY(8px);opacity:.92;transition:transform .3s}
+.gallery figure:hover figcaption{transform:none}
+.g1{grid-column:span 7;height:420px}.g2{grid-column:span 5;height:420px}
+.g3,.g4,.g5{grid-column:span 4;height:280px}
+.g6{grid-column:span 8;height:380px}.g7{grid-column:span 4;height:380px}
+.g6 img{object-fit:contain!important;background:#ecebe4}
+
+/* TIMELINE */
+.timeline{position:relative;max-width:760px}
+.timeline::before{content:"";position:absolute;left:15px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--teal),var(--cyan),rgba(56,189,248,.1))}
+.tl{position:relative;padding:0 0 34px 56px}
+.tl::before{content:"";position:absolute;left:6px;top:4px;width:20px;height:20px;border-radius:50%;background:var(--abyss);border:3px solid var(--teal)}
+.tl.done::before{background:var(--teal)}
+.tl .when{font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--teal)}
+.tl h4{color:#fff;font-size:1.08rem;margin:2px 0 4px}
+.tl p{color:#9fb6c8;font-size:.95rem}
+
+/* FOUNDER */
+.founder{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:center}
+.founder-img{position:relative}
+.founder-img img{border-radius:24px;box-shadow:0 30px 70px rgba(6,34,58,.25);aspect-ratio:4/5;object-fit:cover;object-position:75% 30%;width:100%}
+.founder-img .badge{position:absolute;right:-18px;bottom:30px;background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 15px 40px rgba(6,34,58,.18);font-size:.85rem}
+.founder-img .badge b{display:block;color:var(--navy);font-size:1rem}
+.founder h3{font-size:1.6rem;color:var(--navy);margin-bottom:4px}
+.founder .role{color:var(--teal);font-weight:600;margin-bottom:20px}
+.founder p{color:var(--muted);margin-bottom:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 30px}
+.tags span{background:var(--light);border:1px solid #dbe6ee;border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:500;color:var(--deep)}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:28px}
+.mini img{border-radius:12px;height:120px;width:100%;object-fit:cover;cursor:zoom-in;transition:transform .3s}
+.mini img:hover{transform:scale(1.04)}
+.btn.dark-btn{background:var(--navy);color:#fff;box-shadow:0 10px 30px rgba(6,34,58,.25)}
+
+/* CONTACT */
+.contact{text-align:center;background:radial-gradient(ellipse at 50% 0%,#0e5a7a,transparent 60%),var(--abyss);color:#fff}
+.contact h2{color:#fff}
+.contact .lead{color:#9fb6c8;margin:0 auto 40px}
+.asks{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;text-align:left}
+.asks div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px}
+.asks b{display:block;margin-bottom:6px}
+.asks p{color:#9fb6c8;font-size:.9rem}
+footer{background:#010811;color:#5f7a8f;text-align:center;padding:26px;font-size:.85rem}
+footer a{color:#9fb6c8}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* LIGHTBOX */
+#lb{position:fixed;inset:0;background:rgba(2,12,24,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:30px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-height:90vh;max-width:92vw;border-radius:12px}
+
+@media(max-width:900px){
+  .hero,.split,.founder{grid-template-columns:1fr}
+  .hero-img{order:-1;max-width:460px}
+  nav ul li:not(:last-child){display:none}
+  .stats .wrap,.asks{grid-template-columns:1fr 1fr}
+  .gallery figure{grid-column:span 12!important;height:260px!important}
+  .founder-img .badge{right:10px}
   section{padding:80px 0}
-  section.alt{background:var(--light)}
-  h2{font-size:1.9rem;color:var(--navy);margin-bottom:10px}
-  .lead{color:var(--muted);max-width:680px;margin-bottom:38px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-  .card{background:#fff;border:1px solid #e3ebf2;border-radius:12px;padding:24px}
-  section.alt .card{border-color:#dbe6ee}
-  .card h3{color:var(--deep);font-size:1.08rem;margin-bottom:8px}
-  .card p{color:var(--muted);font-size:.96rem}
-  .num{font-size:2rem;font-weight:800;color:var(--teal)}
-  .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
-  figure{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dbe6ee}
-  figure img{width:100%;height:260px;object-fit:cover;display:block;background:#dbe6ee}
-  figcaption{padding:14px 18px;font-size:.92rem;color:var(--muted)}
-  .steps{counter-reset:s;list-style:none}
-  .steps li{position:relative;padding:0 0 22px 52px}
-  .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
-  .steps strong{color:var(--navy)}
-  .team{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
-  .avatar{width:96px;height:96px;border-radius:50%;background:var(--deep);color:#fff;font-size:2rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-  .contact{background:var(--navy);color:#fff;text-align:center}
-  .contact h2{color:#fff}
-  .contact p{color:#cfe3f0;margin:0 auto 28px;max-width:600px}
-  footer{background:#041827;color:#7d97ab;text-align:center;padding:22px;font-size:.85rem}
-  @media(max-width:720px){nav ul{display:none}header{padding:80px 0}}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
 
-<nav><div class="wrap">
-  <div class="logo">Deep<span>Look</span></div>
+<nav id="nav"><div class="wrap">
+  <a class="logo" href="#"><i></i>Deep<span>Look</span></a>
   <ul>
     <li><a href="#probleme">Problème</a></li>
     <li><a href="#solution">Solution</a></li>
     <li><a href="#prototype">Prototype</a></li>
     <li><a href="#marche">Marché</a></li>
-    <li><a href="#projet">Avancement</a></li>
-    <li><a href="#equipe">Équipe</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#fondateur">Fondateur</a></li>
+    <li><a class="cta" href="#contact">Nous contacter</a></li>
   </ul>
 </div></nav>
 
-<header><div class="wrap">
-  <h1>Des drones sous-marins pour inspecter l'aquaculture, sans risquer de vies.</h1>
-  <p>DeepLook conçoit des ROV (drones sous-marins téléopérés) qui inspectent filets, cages et structures immergées de façon plus sûre, plus rapide et moins coûteuse que les plongeurs.</p>
-  <a class="btn" href="#contact">Nous contacter</a>
-  <a class="btn ghost" href="#solution">Découvrir le projet</a>
-</div></header>
+<header>
+  <div class="bubbles" id="bubbles"></div>
+  <div class="wrap hero">
+    <div class="reveal in">
+      <span class="eyebrow">Robotique sous-marine · Aquaculture</span>
+      <h1>Voir sous l'eau.<br><em>Sans risquer de vies.</em></h1>
+      <p>DeepLook conçoit des drones sous-marins (ROV) qui inspectent filets, cages et structures immergées : plus sûrs, plus rapides et bien moins coûteux que les plongeurs.</p>
+      <a class="btn" href="#solution">Découvrir DeepLook →</a>
+      <a class="btn ghost" href="#fondateur">Le fondateur</a>
+    </div>
+    <div class="hero-img reveal in d2">
+      <img src="../img/rov-v1.jpg" alt="Rendu SOLIDWORKS du ROV DeepLook">
+      <small>Rendu 3D SOLIDWORKS · ROV DeepLook</small>
+    </div>
+  </div>
+  <div class="scroll-hint">Explorer<b></b></div>
+</header>
+
+<div class="stats"><div class="wrap">
+  <div class="stat reveal"><b data-count="6">0</b><span>propulseurs vectoriels</span></div>
+  <div class="stat reveal d1"><b data-count="30" data-suffix="+">0</b><span>fermes aquacoles ciblées en Tunisie</span></div>
+  <div class="stat reveal d2"><b data-count="20000" data-suffix=" t">0</b><span>de poissons produits par an en Tunisie</span></div>
+  <div class="stat reveal d3"><b data-count="100" data-suffix=" %">0</b><span>conçu et fabriqué par nos soins</span></div>
+</div></div>
 
 <section id="probleme"><div class="wrap">
-  <h2>Le problème</h2>
-  <p class="lead">Les fermes aquacoles en cages flottantes dépendent encore des plongeurs pour surveiller leurs installations.</p>
+  <span class="eyebrow reveal">Le problème</span>
+  <h2 class="reveal">L'aquaculture surveille encore ses cages… à la main.</h2>
+  <p class="lead reveal">Les fermes en cages flottantes dépendent des plongeurs pour inspecter leurs installations. Un modèle risqué, coûteux et limité.</p>
   <div class="grid">
-    <div class="card"><h3>Risqué</h3><p>Plongées répétées, courants, mauvaise visibilité : un métier dangereux et difficile à assurer.</p></div>
-    <div class="card"><h3>Coûteux et limité</h3><p>Des équipes chères, des plongées courtes, et aucune intervention possible par mauvais temps.</p></div>
-    <div class="card"><h3>Des pertes invisibles</h3><p>Un trou non détecté peut libérer des tonnes de poissons ; l'encrassement des filets augmente la mortalité.</p></div>
+    <div class="card reveal"><div class="ico">⚠️</div><h3>Risqué</h3><p>Plongées répétées, courants, mauvaise visibilité : un métier dangereux et difficile à assurer.</p></div>
+    <div class="card reveal d1"><div class="ico">⏱️</div><h3>Coûteux et limité</h3><p>Des équipes chères, des plongées de 30 à 45 minutes, et aucune intervention par mauvais temps.</p></div>
+    <div class="card reveal d2"><div class="ico">🐟</div><h3>Des pertes invisibles</h3><p>Un trou non détecté peut libérer des tonnes de poissons ; l'encrassement des filets augmente la mortalité.</p></div>
   </div>
 </div></section>
 
-<section id="solution" class="alt"><div class="wrap">
-  <h2>Notre solution</h2>
-  <p class="lead">Un ROV à 6 propulseurs vectoriels, conçu pour l'inspection aquacole, et un service clé en main autour.</p>
-  <div class="grid">
-    <div class="card"><h3>Le drone</h3><p>Manœuvrable et stable grâce à la propulsion vectorielle, avec caméra HD pour inspecter filets, cages et ancrages.</p></div>
-    <div class="card"><h3>Conçu localement</h3><p>Conception et fabrication locales : un coût nettement inférieur aux équipements importés.</p></div>
-    <div class="card"><h3>Des données utiles</h3><p>Vidéos, rapports d'inspection et suivi dans le temps pour agir avant que les dégâts n'arrivent.</p></div>
+<section id="solution" class="alt"><div class="wrap split">
+  <div class="reveal">
+    <span class="eyebrow">Notre solution</span>
+    <h2>Un ROV pensé pour l'inspection aquacole.</h2>
+    <p class="lead" style="margin-bottom:10px">Un drone sous-marin à 6 propulseurs vectoriels, piloté depuis la surface, qui filme et documente l'état des installations en quelques minutes.</p>
+    <ul class="checks">
+      <li><b>Manœuvrable et stable</b> grâce à la propulsion vectorielle 6 axes</li>
+      <li><b>Caméra embarquée</b> pour inspecter filets, cages et ancrages</li>
+      <li><b>Conçu et fabriqué localement</b>, bien moins cher que l'import</li>
+      <li><b>Rapports d'inspection</b> et suivi dans le temps</li>
+    </ul>
+    <div class="compare">
+      <div class="old"><h4>❌ Plongeurs</h4><p>Risque humain, plongées courtes, arrêt par mauvais temps, simple compte rendu oral.</p></div>
+      <div class="new"><h4>✅ DeepLook</h4><p>Zéro risque humain, opération prolongée, vidéo HD et rapport numérique.</p></div>
+    </div>
   </div>
+  <div class="reveal d2"><img src="../img/rov-final.jpg" alt="Prototype ROV DeepLook assemblé avec ses 6 propulseurs"></div>
 </div></section>
 
-<section id="prototype"><div class="wrap">
-  <h2>Le prototype</h2>
-  <p class="lead">Un ROV conçu, assemblé et programmé de A à Z : châssis, étanchéité, propulsion et électronique embarquée.</p>
-  <div class="photos">
-    <figure><img src="https://lh3.googleusercontent.com/d/1quUN3gQgiZlCnjWk29wH7azOoGy28-ms" alt="Tube étanche et propulseurs"><figcaption>Tube étanche et propulseurs, vue de dessus</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1exDA8A9UPWrT4PYVK42yHE2HA6-Z9Dd3" alt="Prototype câblé"><figcaption>Prototype câblé, vue de dessus</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1YKehHCPyimrCwPLRLB3bl6oNGGtZMa5F" alt="Châssis en plexiglas et propulseur"><figcaption>Plaques de châssis en plexiglas et propulseur</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1m1nrO9Ebkr4-TYa4VdpUeXv0Y7I89PPc" alt="Électronique embarquée"><figcaption>Électronique embarquée : Raspberry Pi, contrôleurs moteurs, caméra</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1cyGkZ4wR5TjQqQ0nR0gRHFiuQb9UYwuI" alt="Test avec manette"><figcaption>Programmation et test de pilotage à la manette</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1RwlNLNLAOpkflh6VgEllA_ArfF_FF6qX" alt="Schéma de câblage"><figcaption>Schéma de câblage : Raspberry Pi, ESC, 6 propulseurs</figcaption></figure>
-  </div>
-</div></section>
-
-<section class="alt"><div class="wrap">
-  <h2>Conception SolidWorks</h2>
-  <p class="lead">Chaque pièce est modélisée et mise en plan selon la norme ISO 2768, prête pour la fabrication.</p>
-  <div class="photos">
-    <figure><img src="https://lh3.googleusercontent.com/d/10JuO1EtI8J8eWrF_9YfSP4M7RW-LYkBJ" alt="Propulseur vertical"><figcaption>Propulseur vertical</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/14ctyrCQ8vkHtze-cAjSqNjAIpQ_grdi8" alt="Hélice du propulseur"><figcaption>Hélice du propulseur</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1FFQkf7Ut71U3KaijvldDGJbCiv3TOS1a" alt="Support de châssis"><figcaption>Support de châssis</figcaption></figure>
-    <figure><img src="https://lh3.googleusercontent.com/d/1CuGSxk9w9piNPeRqE_hTVUIpsEFbVOsI" alt="Couvercle arrière"><figcaption>Couvercle arrière du boîtier étanche</figcaption></figure>
+<section id="prototype" class="dark"><div class="wrap">
+  <span class="eyebrow reveal">Du dessin au prototype</span>
+  <h2 class="reveal">Conçu, modélisé et construit de A à Z.</h2>
+  <p class="lead reveal">Conception SOLIDWORKS, mises en plan normalisées, impression 3D des propulseurs, électronique et programmation embarquées.</p>
+  <div class="gallery">
+    <figure class="g1 reveal"><img src="../img/rov-v1.jpg" alt="Rendu 3D du ROV"><figcaption>Rendu 3D SOLIDWORKS du ROV</figcaption></figure>
+    <figure class="g2 reveal d1"><img src="../img/rov-final.jpg" alt="ROV assemblé"><figcaption>Prototype assemblé : tube étanche et 6 propulseurs</figcaption></figure>
+    <figure class="g3 reveal"><img src="../img/propulseur-imprime.jpg" alt="Propulseur imprimé en 3D"><figcaption>Propulseur à tuyère imprimé en 3D</figcaption></figure>
+    <figure class="g4 reveal d1"><img src="../img/batterie.jpg" alt="Pack batterie"><figcaption>Pack batterie 4S3P</figcaption></figure>
+    <figure class="g5 reveal d2"><img src="../img/mep-tuyere.jpg" alt="Mise en plan de la tuyère"><figcaption>Mise en plan de la tuyère</figcaption></figure>
+    <figure class="g6 reveal"><img src="../img/mep-ensemble.jpg" alt="Mise en plan d'ensemble du ROV"><figcaption>Mise en plan d'ensemble et nomenclature du ROV DeepLook</figcaption></figure>
+    <figure class="g7 reveal d1"><img src="../img/mep-hublot.jpg" alt="Mise en plan de la bague de hublot"><figcaption>Bague de hublot</figcaption></figure>
   </div>
 </div></section>
 
 <section id="marche"><div class="wrap">
-  <h2>Le marché</h2>
-  <p class="lead">Une aquaculture méditerranéenne en croissance, et des besoins d'inspection bien au-delà.</p>
+  <span class="eyebrow reveal">Marché &amp; modèle</span>
+  <h2 class="reveal">Une Méditerranée qui élève de plus en plus en mer.</h2>
+  <p class="lead reveal">Nous commençons par les grandes fermes en cages offshore de Tunisie, puis les ports, barrages et infrastructures immergées, en Afrique du Nord et sur la façade méditerranéenne française.</p>
   <div class="grid">
-    <div class="card"><div class="num">30+</div><p>entreprises aquacoles en Tunisie, dont une vingtaine de grandes fermes en cages offshore.</p></div>
-    <div class="card"><div class="num">20 000 t</div><p>de loup et de daurade produits chaque année en Tunisie, sous surveillance constante.</p></div>
-    <div class="card"><div class="num">+</div><p>Ports, barrages et infrastructures offshore : les mêmes besoins d'inspection sous-marine.</p></div>
+    <div class="card reveal"><div class="ico">🔍</div><h3>Inspection as a Service</h3><p>Le client teste d'abord le service, sans investir : nous inspectons pour lui.</p></div>
+    <div class="card reveal d1"><div class="ico">🤖</div><h3>Vente de drones</h3><p>Pour les fermes qui veulent inspecter elles-mêmes, avec formation incluse.</p></div>
+    <div class="card reveal d2"><div class="ico">🛠️</div><h3>Maintenance &amp; logiciel</h3><p>Contrats de maintenance et plateforme de rapports d'inspection.</p></div>
   </div>
 </div></section>
 
-<section class="alt"><div class="wrap">
-  <h2>Modèle économique</h2>
-  <p class="lead">Un modèle hybride qui réduit le risque pour le client.</p>
-  <div class="grid">
-    <div class="card"><h3>Inspection as a Service</h3><p>Le client teste d'abord le service, sans investissement.</p></div>
-    <div class="card"><h3>Vente de drones</h3><p>Pour les fermes qui veulent inspecter elles-mêmes.</p></div>
-    <div class="card"><h3>Maintenance &amp; logiciel</h3><p>Contrats de maintenance et plateforme de rapports d'inspection.</p></div>
+<section class="dark"><div class="wrap">
+  <span class="eyebrow reveal">Avancement</span>
+  <h2 class="reveal">Où en est DeepLook.</h2>
+  <div class="timeline">
+    <div class="tl done reveal"><div class="when">Juin 2026</div><h4>Prototype fonctionnel</h4><p>ROV conçu, fabriqué et présenté lors de la soutenance de fin d'études à l'ISET Djerba.</p></div>
+    <div class="tl done reveal"><div class="when">Septembre 2026</div><h4>Demo Day StarTech</h4><p>Projet présenté au Demo Day de l'incubateur StarTech (EFE-Tunisie), Zarzis Smart Center.</p></div>
+    <div class="tl done reveal"><div class="when">Automne 2026</div><h4>Installation à Toulon</h4><p>Le fondateur rejoint l'ISEN Méditerranée, au cœur de l'écosystème maritime et naval français.</p></div>
+    <div class="tl reveal"><div class="when">Prochaine étape</div><h4>Tests en conditions réelles</h4><p>Pilotes avec des fermes aquacoles en France et en Tunisie, puis pré-série.</p></div>
   </div>
 </div></section>
 
-<section id="projet"><div class="wrap">
-  <h2>Où en est le projet</h2>
-  <p class="lead">Du prototype à la validation terrain.</p>
-  <div class="photos">
-    <figure>
-      <img src="https://lh3.googleusercontent.com/d/1oWMV76di0E8maeQmPhej8_tros8Bw6Dt" alt="Présentation du prototype ROV DeepLook lors de la remise de diplôme">
-      <figcaption>Présentation du prototype ROV DeepLook – remise de diplôme, ISET Djerba (juin 2026)</figcaption>
-    </figure>
-    <figure>
-      <img src="https://lh3.googleusercontent.com/d/1RmvxlypYRLrfP7z_GMiiSrJaShVoC6K9" alt="Présentation de DeepLook au Demo Day du StarTech Incubator">
-      <figcaption>Pitch au Demo Day du StarTech Incubator (EFE-Tunisie)</figcaption>
-    </figure>
+<section id="fondateur" class="alt"><div class="wrap founder">
+  <div class="founder-img reveal">
+    <img src="../img/demoday.jpg" alt="Bassam Sassi au Demo Day StarTech">
+    <div class="badge"><b>CSWP</b>Certified SOLIDWORKS Professional</div>
   </div>
-  <ol class="steps" style="margin-top:40px">
-    <li><strong>Fait :</strong> conception mécanique et électronique, prototype fonctionnel.</li>
-    <li><strong>Fait :</strong> projet présenté en incubateur (StarTech, EFE-Tunisie).</li>
-    <li><strong>En cours :</strong> structuration du projet à Toulon (ISEN Méditerranée, écosystème maritime).</li>
-    <li><strong>Prochaine étape :</strong> tests en conditions réelles avec des fermes pilotes en France et en Tunisie.</li>
-  </ol>
-</div></section>
-
-<section id="equipe" class="alt"><div class="wrap">
-  <h2>L'équipe</h2>
-  <div class="team">
-    <div class="avatar">BS</div>
-    <div>
-      <h3 style="color:var(--navy)">Bassam Sassi – Fondateur</h3>
-      <p class="lead" style="margin-bottom:0">Technicien Supérieur en Génie Mécatronique (mention Très Bien), étudiant en Cycle Ingénieur à l'ISEN Méditerranée (Toulon). Certifié CSWP (SolidWorks), formateur en robotique et systèmes embarqués. Membre du bureau JCI, Jeune Ingénieur et IEEE.</p>
+  <div class="reveal d1">
+    <span class="eyebrow">Le fondateur</span>
+    <h3>Bassam Sassi</h3>
+    <div class="role">Fondateur de DeepLook · Mécatronique &amp; robotique</div>
+    <p>Originaire de Gabès, sur la côte tunisienne, Bassam a grandi face à la mer et aux défis de ceux qui en vivent. Diplômé en Génie Mécatronique de l'ISET Djerba avec la mention Très Bien (4<sup>e</sup> de sa promotion), il a conçu le premier prototype DeepLook comme projet de fin d'études.</p>
+    <p>Aujourd'hui étudiant en Cycle Ingénieur à l'ISEN Méditerranée à Toulon, il allie conception mécanique, systèmes embarqués et passion pour la mer. Formateur en robotique et en SOLIDWORKS, il est aussi membre actif de la JCI, de Jeune Ingénieur et de l'IEEE.</p>
+    <div class="tags">
+      <span>SOLIDWORKS CSWP</span><span>Systèmes embarqués</span><span>Raspberry Pi</span><span>Impression 3D</span><span>Usinage</span><span>Python</span><span>FR · AR · EN</span>
+    </div>
+    <a class="btn dark-btn" href="../" target="_blank" rel="noopener">Voir le portfolio complet →</a>
+    <a class="btn ghost" style="color:var(--navy);border-color:#b8c8d6" href="../cv/CV_Bassam_Sassi.pdf" target="_blank" rel="noopener">Télécharger le CV</a>
+    <div class="mini">
+      <img src="../img/swug-presentation.jpg" alt="Présentation au SOLIDWORKS User Group">
+      <img src="../img/equipe-prix.jpg" alt="Équipe lauréate avec trophée">
+      <img src="../img/maintenance-navale.jpg" alt="Maintenance navale sur un remorqueur" style="object-position:50% 30%">
     </div>
   </div>
 </div></section>
 
 <section id="contact" class="contact"><div class="wrap">
-  <h2>Ce que nous recherchons</h2>
-  <p>Fermes pilotes pour tester DeepLook, partenaires techniques en robotique sous-marine, accompagnement en incubation, et investisseurs d'amorçage passionnés par l'économie bleue.</p>
-  <a class="btn" href="mailto:bassamesassi@gmail.com">bassamesassi@gmail.com</a>
+  <span class="eyebrow reveal">Rejoignez l'aventure</span>
+  <h2 class="reveal">Ce que nous recherchons</h2>
+  <p class="lead reveal">DeepLook entre dans sa phase de validation terrain. Nous cherchons des partenaires pour passer du prototype au produit.</p>
+  <div class="asks">
+    <div class="reveal"><b>🐟 Fermes pilotes</b><p>Pour tester DeepLook en conditions réelles.</p></div>
+    <div class="reveal d1"><b>🔬 Partenaires techniques</b><p>Laboratoires et industriels de la robotique sous-marine.</p></div>
+    <div class="reveal d2"><b>🚀 Accompagnement</b><p>Incubation, mentorat, réseau.</p></div>
+    <div class="reveal d3"><b>💼 Investisseurs</b><p>Business angels passionnés par l'économie bleue.</p></div>
+  </div>
+  <a class="btn reveal" href="mailto:bassamesassi@gmail.com?subject=DeepLook%20-%20Prise%20de%20contact">✉️ bassamesassi@gmail.com</a>
 </div></section>
 
-<footer>© 2026 DeepLook · Toulon, France &amp; Tunisie</footer>
+<footer>© 2026 DeepLook · Toulon, France &amp; Gabès, Tunisie · <a href="../">Portfolio de Bassam Sassi</a></footer>
 
+<div id="lb"><img alt=""></div>
+
+<script>
+// nav background on scroll
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+// bubbles
+const b=document.getElementById('bubbles');
+for(let i=0;i<22;i++){const s=document.createElement('span');const z=6+Math.random()*18;
+  s.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*15}s`;b.appendChild(s)}
+// reveal on scroll + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(c=>{const end=+c.dataset.count,suf=c.dataset.suffix||'',t0=performance.now();
+    const step=t=>{const p=Math.min((t-t0)/1600,1),v=Math.round(end*(1-Math.pow(1-p,3)));c.textContent=v.toLocaleString('fr-FR')+suf;if(p<1)requestAnimationFrame(step)};requestAnimationFrame(step)});
+  io.unobserve(e.target)}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// lightbox
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('.gallery img,.mini img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+</script>
 </body>
 </html>
