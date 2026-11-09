@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepLook – Drones sous-marins pour l'inspection aquacole</title>
+<meta name="description" content="DeepLook conçoit des drones sous-marins (ROV) pour inspecter les fermes aquacoles de façon plus sûre, plus rapide et moins coûteuse.">
+<style>
+  :root{--navy:#06223a;--deep:#0b3a5c;--teal:#14b8a6;--light:#f4f8fb;--text:#1e293b;--muted:#5b6b7c}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);line-height:1.6;background:#fff}
+  a{color:var(--teal)}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  nav{position:sticky;top:0;background:rgba(6,34,58,.95);backdrop-filter:blur(6px);z-index:10}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  nav .logo{color:#fff;font-weight:800;font-size:1.25rem;letter-spacing:.5px}
+  nav .logo span{color:var(--teal)}
+  nav ul{display:flex;gap:22px;list-style:none}
+  nav ul a{color:#cfe3f0;text-decoration:none;font-size:.92rem}
+  nav ul a:hover{color:#fff}
+  header{background:linear-gradient(160deg,rgba(6,34,58,.93) 0%,rgba(11,58,92,.88) 60%,rgba(14,90,122,.8) 100%),url("https://lh3.googleusercontent.com/d/1quUN3gQgiZlCnjWk29wH7azOoGy28-ms") center/cover;color:#fff;padding:110px 0 120px}
+  header h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;max-width:760px}
+  header p{font-size:1.15rem;color:#cfe3f0;max-width:640px;margin:22px 0 34px}
+  .btn{display:inline-block;background:var(--teal);color:#fff;padding:13px 26px;border-radius:8px;text-decoration:none;font-weight:600}
+  .btn.ghost{background:transparent;border:1.5px solid #cfe3f0;margin-left:10px}
+  section{padding:80px 0}
+  section.alt{background:var(--light)}
+  h2{font-size:1.9rem;color:var(--navy);margin-bottom:10px}
+  .lead{color:var(--muted);max-width:680px;margin-bottom:38px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .card{background:#fff;border:1px solid #e3ebf2;border-radius:12px;padding:24px}
+  section.alt .card{border-color:#dbe6ee}
+  .card h3{color:var(--deep);font-size:1.08rem;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.96rem}
+  .num{font-size:2rem;font-weight:800;color:var(--teal)}
+  .photos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+  figure{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #dbe6ee}
+  figure img{width:100%;height:260px;object-fit:cover;display:block;background:#dbe6ee}
+  figcaption{padding:14px 18px;font-size:.92rem;color:var(--muted)}
+  .steps{counter-reset:s;list-style:none}
+  .steps li{position:relative;padding:0 0 22px 52px}
+  .steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .steps strong{color:var(--navy)}
+  .team{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+  .avatar{width:96px;height:96px;border-radius:50%;background:var(--deep);color:#fff;font-size:2rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .contact{background:var(--navy);color:#fff;text-align:center}
+  .contact h2{color:#fff}
+  .contact p{color:#cfe3f0;margin:0 auto 28px;max-width:600px}
+  footer{background:#041827;color:#7d97ab;text-align:center;padding:22px;font-size:.85rem}
+  @media(max-width:720px){nav ul{display:none}header{padding:80px 0}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="logo">Deep<span>Look</span></div>
+  <ul>
+    <li><a href="#probleme">Problème</a></li>
+    <li><a href="#solution">Solution</a></li>
+    <li><a href="#prototype">Prototype</a></li>
+    <li><a href="#marche">Marché</a></li>
+    <li><a href="#projet">Avancement</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<header><div class="wrap">
+  <h1>Des drones sous-marins pour inspecter l'aquaculture, sans risquer de vies.</h1>
+  <p>DeepLook conçoit des ROV (drones sous-marins téléopérés) qui inspectent filets, cages et structures immergées de façon plus sûre, plus rapide et moins coûteuse que les plongeurs.</p>
+  <a class="btn" href="#contact">Nous contacter</a>
+  <a class="btn ghost" href="#solution">Découvrir le projet</a>
+</div></header>
+
+<section id="probleme"><div class="wrap">
+  <h2>Le problème</h2>
+  <p class="lead">Les fermes aquacoles en cages flottantes dépendent encore des plongeurs pour surveiller leurs installations.</p>
+  <div class="grid">
+    <div class="card"><h3>Risqué</h3><p>Plongées répétées, courants, mauvaise visibilité : un métier dangereux et difficile à assurer.</p></div>
+    <div class="card"><h3>Coûteux et limité</h3><p>Des équipes chères, des plongées courtes, et aucune intervention possible par mauvais temps.</p></div>
+    <div class="card"><h3>Des pertes invisibles</h3><p>Un trou non détecté peut libérer des tonnes de poissons ; l'encrassement des filets augmente la mortalité.</p></div>
+  </div>
+</div></section>
+
+<section id="solution" class="alt"><div class="wrap">
+  <h2>Notre solution</h2>
+  <p class="lead">Un ROV à 6 propulseurs vectoriels, conçu pour l'inspection aquacole, et un service clé en main autour.</p>
+  <div class="grid">
+    <div class="card"><h3>Le drone</h3><p>Manœuvrable et stable grâce à la propulsion vectorielle, avec caméra HD pour inspecter filets, cages et ancrages.</p></div>
+    <div class="card"><h3>Conçu localement</h3><p>Conception et fabrication locales : un coût nettement inférieur aux équipements importés.</p></div>
+    <div class="card"><h3>Des données utiles</h3><p>Vidéos, rapports d'inspection et suivi dans le temps pour agir avant que les dégâts n'arrivent.</p></div>
+  </div>
+</div></section>
+
+<section id="prototype"><div class="wrap">
+  <h2>Le prototype</h2>
+  <p class="lead">Un ROV conçu, assemblé et programmé de A à Z : châssis, étanchéité, propulsion et électronique embarquée.</p>
+  <div class="photos">
+    <figure><img src="https://lh3.googleusercontent.com/d/1quUN3gQgiZlCnjWk29wH7azOoGy28-ms" alt="Tube étanche et propulseurs"><figcaption>Tube étanche et propulseurs, vue de dessus</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1exDA8A9UPWrT4PYVK42yHE2HA6-Z9Dd3" alt="Prototype câblé"><figcaption>Prototype câblé, vue de dessus</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1YKehHCPyimrCwPLRLB3bl6oNGGtZMa5F" alt="Châssis en plexiglas et propulseur"><figcaption>Plaques de châssis en plexiglas et propulseur</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1m1nrO9Ebkr4-TYa4VdpUeXv0Y7I89PPc" alt="Électronique embarquée"><figcaption>Électronique embarquée : Raspberry Pi, contrôleurs moteurs, caméra</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1cyGkZ4wR5TjQqQ0nR0gRHFiuQb9UYwuI" alt="Test avec manette"><figcaption>Programmation et test de pilotage à la manette</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1RwlNLNLAOpkflh6VgEllA_ArfF_FF6qX" alt="Schéma de câblage"><figcaption>Schéma de câblage : Raspberry Pi, ESC, 6 propulseurs</figcaption></figure>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>Conception SolidWorks</h2>
+  <p class="lead">Chaque pièce est modélisée et mise en plan selon la norme ISO 2768, prête pour la fabrication.</p>
+  <div class="photos">
+    <figure><img src="https://lh3.googleusercontent.com/d/10JuO1EtI8J8eWrF_9YfSP4M7RW-LYkBJ" alt="Propulseur vertical"><figcaption>Propulseur vertical</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/14ctyrCQ8vkHtze-cAjSqNjAIpQ_grdi8" alt="Hélice du propulseur"><figcaption>Hélice du propulseur</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1FFQkf7Ut71U3KaijvldDGJbCiv3TOS1a" alt="Support de châssis"><figcaption>Support de châssis</figcaption></figure>
+    <figure><img src="https://lh3.googleusercontent.com/d/1CuGSxk9w9piNPeRqE_hTVUIpsEFbVOsI" alt="Couvercle arrière"><figcaption>Couvercle arrière du boîtier étanche</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="marche"><div class="wrap">
+  <h2>Le marché</h2>
+  <p class="lead">Une aquaculture méditerranéenne en croissance, et des besoins d'inspection bien au-delà.</p>
+  <div class="grid">
+    <div class="card"><div class="num">30+</div><p>entreprises aquacoles en Tunisie, dont une vingtaine de grandes fermes en cages offshore.</p></div>
+    <div class="card"><div class="num">20 000 t</div><p>de loup et de daurade produits chaque année en Tunisie, sous surveillance constante.</p></div>
+    <div class="card"><div class="num">+</div><p>Ports, barrages et infrastructures offshore : les mêmes besoins d'inspection sous-marine.</p></div>
+  </div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+  <h2>Modèle économique</h2>
+  <p class="lead">Un modèle hybride qui réduit le risque pour le client.</p>
+  <div class="grid">
+    <div class="card"><h3>Inspection as a Service</h3><p>Le client teste d'abord le service, sans investissement.</p></div>
+    <div class="card"><h3>Vente de drones</h3><p>Pour les fermes qui veulent inspecter elles-mêmes.</p></div>
+    <div class="card"><h3>Maintenance &amp; logiciel</h3><p>Contrats de maintenance et plateforme de rapports d'inspection.</p></div>
+  </div>
+</div></section>
+
+<section id="projet"><div class="wrap">
+  <h2>Où en est le projet</h2>
+  <p class="lead">Du prototype à la validation terrain.</p>
+  <div class="photos">
+    <figure>
+      <img src="https://lh3.googleusercontent.com/d/1oWMV76di0E8maeQmPhej8_tros8Bw6Dt" alt="Présentation du prototype ROV DeepLook lors de la remise de diplôme">
+      <figcaption>Présentation du prototype ROV DeepLook – remise de diplôme, ISET Djerba (juin 2026)</figcaption>
+    </figure>
+    <figure>
+      <img src="https://lh3.googleusercontent.com/d/1RmvxlypYRLrfP7z_GMiiSrJaShVoC6K9" alt="Présentation de DeepLook au Demo Day du StarTech Incubator">
+      <figcaption>Pitch au Demo Day du StarTech Incubator (EFE-Tunisie)</figcaption>
+    </figure>
+  </div>
+  <ol class="steps" style="margin-top:40px">
+    <li><strong>Fait :</strong> conception mécanique et électronique, prototype fonctionnel.</li>
+    <li><strong>Fait :</strong> projet présenté en incubateur (StarTech, EFE-Tunisie).</li>
+    <li><strong>En cours :</strong> structuration du projet à Toulon (ISEN Méditerranée, écosystème maritime).</li>
+    <li><strong>Prochaine étape :</strong> tests en conditions réelles avec des fermes pilotes en France et en Tunisie.</li>
+  </ol>
+</div></section>
+
+<section id="equipe" class="alt"><div class="wrap">
+  <h2>L'équipe</h2>
+  <div class="team">
+    <div class="avatar">BS</div>
+    <div>
+      <h3 style="color:var(--navy)">Bassam Sassi – Fondateur</h3>
+      <p class="lead" style="margin-bottom:0">Technicien Supérieur en Génie Mécatronique (mention Très Bien), étudiant en Cycle Ingénieur à l'ISEN Méditerranée (Toulon). Certifié CSWP (SolidWorks), formateur en robotique et systèmes embarqués. Membre du bureau JCI, Jeune Ingénieur et IEEE.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Ce que nous recherchons</h2>
+  <p>Fermes pilotes pour tester DeepLook, partenaires techniques en robotique sous-marine, accompagnement en incubation, et investisseurs d'amorçage passionnés par l'économie bleue.</p>
+  <a class="btn" href="mailto:bassamesassi@gmail.com">bassamesassi@gmail.com</a>
+</div></section>
+
+<footer>© 2026 DeepLook · Toulon, France &amp; Tunisie</footer>
+
+</body>
+</html>
