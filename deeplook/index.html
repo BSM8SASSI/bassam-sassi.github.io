@@ -142,6 +142,22 @@ header::after{content:"";position:absolute;inset:0;background:repeating-linear-g
 footer{background:#010811;color:#5f7a8f;text-align:center;padding:26px;font-size:.85rem}
 footer a{color:#9fb6c8}
 
+.specs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+.spec{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px;background:rgba(255,255,255,.03)}
+.spec b{display:block;font-size:1.5rem;color:var(--teal);font-weight:800}.spec span{color:#9fb6c8;font-size:.88rem}
+.fin{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+.bars{display:flex;align-items:flex-end;gap:18px;height:320px;padding:0 10px;border-bottom:2px solid #dbe6ee}
+.bar{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%}
+.bar i{display:block;width:100%;border-radius:10px 10px 0 0;background:linear-gradient(180deg,var(--cyan),var(--teal));height:0;transition:height 1.4s cubic-bezier(.2,.8,.2,1)}
+.reveal.in .bar i{height:calc(var(--h) * .72)}
+.bar em{font-style:normal;font-weight:800;color:var(--navy);margin-bottom:8px;font-size:.95rem}
+.bar small{margin-top:10px;color:var(--muted);font-size:.85rem;font-weight:600}
+.bar u{text-decoration:none;color:var(--muted);font-size:.75rem}
+.kpis{display:grid;gap:14px}
+.kpi{background:#fff;border:1px solid #e3ebf2;border-radius:14px;padding:20px}
+.kpi b{display:block;font-size:1.7rem;font-weight:800;color:var(--navy)}.kpi span{color:var(--muted);font-size:.9rem}
+.note{color:var(--muted);font-size:.82rem;margin-top:22px;max-width:760px}
+@media(max-width:900px){.specs{grid-template-columns:1fr 1fr}.fin{grid-template-columns:1fr}}
 /* REVEAL */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
 .reveal.in{opacity:1;transform:none}
@@ -172,6 +188,7 @@ footer a{color:#9fb6c8}
     <li><a href="#problem">Problem</a></li>
     <li><a href="#solution">Solution</a></li>
     <li><a href="#market">Market</a></li>
+    <li><a href="#numbers">Numbers</a></li>
     <li><a href="#competition">Competition</a></li>
     <li><a href="#founder">Founder</a></li>
     <li><a class="cta" href="#contact">Contact</a></li>
@@ -200,7 +217,7 @@ footer a{color:#9fb6c8}
   <div class="stat reveal"><b data-count="1" data-suffix=" Mt">0</b><span>EU aquaculture output in 2024</span></div>
   <div class="stat reveal d1"><b data-count="65" data-suffix=" %">0</b><span>of it from Spain, France, Greece &amp; Italy</span></div>
   <div class="stat reveal d2"><b data-count="123">0</b><span>cage-farming companies in Greece alone</span></div>
-  <div class="stat reveal d3"><b data-count="6">0</b><span>vectored thrusters on every DeepLook ROV</span></div>
+  <div class="stat reveal d3"><b data-count="4" data-suffix="K">0</b><span>camera on every DeepLook ROV</span></div>
 </div></div>
 
 <section id="problem"><div class="wrap">
@@ -221,13 +238,13 @@ footer a{color:#9fb6c8}
     <p class="lead" style="margin-bottom:10px">Industrial ROVs are built for oil &amp; gas and priced accordingly. DeepLook is designed from day one for one job: frequent, routine inspection of fish-farm cages, at a price an SME farm can justify.</p>
     <ul class="checks">
       <li><b>6-thruster vectored propulsion</b> for stable positioning along a net in current</li>
-      <li><b>Onboard HD camera</b> for nets, cages, moorings and anchors</li>
+      <li><b>Onboard 4K camera</b> for nets, cages, moorings and anchors</li>
       <li><b>Simple to operate</b>: farm staff are trained to fly it, no diver needed</li>
       <li><b>Inspection reports</b> to track net condition over time and document compliance</li>
     </ul>
     <div class="compare">
       <div class="old"><h4>Divers</h4><p>Human risk, short dives, weather-dependent, verbal reports.</p></div>
-      <div class="new"><h4>DeepLook</h4><p>No one in the water, longer missions, HD video and a digital report every time.</p></div>
+      <div class="new"><h4>DeepLook</h4><p>No one in the water, longer missions, 4K video and a digital report every time.</p></div>
     </div>
   </div>
   <div class="reveal d2"><img src="../img/rov-final.jpg" alt="Assembled DeepLook ROV prototype with 6 thrusters"></div>
@@ -255,6 +272,29 @@ footer a{color:#9fb6c8}
   </div>
 </div></section>
 
+<section id="numbers" class="alt"><div class="wrap">
+  <span class="eyebrow reveal">The numbers</span>
+  <h2 class="reveal">A simple, fast-growing revenue plan.</h2>
+  <p class="lead reveal">Targets from our 5-year business plan: service-first, then drone sales and subscriptions.</p>
+  <div class="fin">
+    <div class="reveal">
+      <div class="bars">
+        <div class="bar" style="--h:17%"><em>€40k</em><i></i><small>Year 1</small><u>15 units</u></div>
+        <div class="bar" style="--h:40%"><em>€97k</em><i></i><small>Year 2</small><u>35 units</u></div>
+        <div class="bar" style="--h:59%"><em>€143k</em><i></i><small>Year 3</small><u>50 units</u></div>
+        <div class="bar" style="--h:85%"><em>€206k</em><i></i><small>Year 4</small><u>70 units</u></div>
+        <div class="bar" style="--h:100%"><em>€243k</em><i></i><small>Year 5</small><u>80 units</u></div>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi reveal"><b>~€1,400</b><span>target production cost per ROV (local manufacturing, bulk components)</span></div>
+      <div class="kpi reveal d1"><b>~€2,700</b><span>average revenue per unit or service contract in year 1</span></div>
+      <div class="kpi reveal d2"><b>&gt;60%</b><span>lower daily inspection cost than a full diving team</span></div>
+    </div>
+  </div>
+  <p class="note reveal">Figures are business-plan targets, not results. They come from our first plan, built for the Tunisian market and converted to euros (≈ €1 = 3.35 TND). European pricing will be set during the 2027 pilots.</p>
+</div></section>
+
 <section id="competition"><div class="wrap">
   <span class="eyebrow reveal">Competition</span>
   <h2 class="reveal">Where DeepLook fits.</h2>
@@ -278,6 +318,12 @@ footer a{color:#9fb6c8}
     <figure class="g5 reveal d2"><img src="../img/mep-tuyere.jpg" alt="Nozzle drawing"><figcaption>Thruster nozzle drawing</figcaption></figure>
     <figure class="g6 reveal"><img src="../img/mep-ensemble.jpg" alt="DeepLook ROV assembly drawing"><figcaption>DeepLook ROV assembly drawing and bill of materials</figcaption></figure>
     <figure class="g7 reveal d1"><img src="../img/mep-hublot.jpg" alt="Porthole ring drawing"><figcaption>Camera porthole ring</figcaption></figure>
+  </div>
+  <div class="specs">
+    <div class="spec reveal"><b>4K</b><span>live camera through the tether</span></div>
+    <div class="spec reveal d1"><b>6</b><span>vectored thrusters, 6-axis control</span></div>
+    <div class="spec reveal d2"><b>4S3P</b><span>Li-ion battery pack</span></div>
+    <div class="spec reveal d3"><b>Pi</b><span>Raspberry Pi onboard computer</span></div>
   </div>
 </div></section>
 
