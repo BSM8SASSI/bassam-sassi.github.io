@@ -48,15 +48,15 @@ p{margin:0}
 
 /* ambient lamp lights that drift and fade, behind everything */
 .lights{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.lights i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.0;animation:breathe 16s ease-in-out infinite}
-.lights i:nth-child(1){width:520px;height:520px;left:-120px;top:10%;background:rgba(245,165,36,.22);animation-delay:0s}
-.lights i:nth-child(2){width:460px;height:460px;right:-140px;top:40%;background:rgba(125,211,252,.16);animation-delay:-5s}
-.lights i:nth-child(3){width:380px;height:380px;left:30%;bottom:-160px;background:rgba(245,165,36,.14);animation-delay:-10s}
+.lights i{position:absolute;border-radius:50%;opacity:.0;animation:breathe 16s ease-in-out infinite}
+.lights i:nth-child(1){width:520px;height:520px;left:-120px;top:10%;background:radial-gradient(closest-side,rgba(245,165,36,.22),rgba(245,165,36,0));animation-delay:0s}
+.lights i:nth-child(2){width:460px;height:460px;right:-140px;top:40%;background:radial-gradient(closest-side,rgba(125,211,252,.16),rgba(125,211,252,0));animation-delay:-5s}
+.lights i:nth-child(3){width:380px;height:380px;left:30%;bottom:-160px;background:radial-gradient(closest-side,rgba(245,165,36,.14),rgba(245,165,36,0));animation-delay:-10s}
 @keyframes breathe{0%,100%{opacity:.25;transform:translate(0,0) scale(1)}50%{opacity:.85;transform:translate(40px,-30px) scale(1.12)}}
 main,header,nav,footer{position:relative;z-index:1}
 
 /* nav */
-nav{position:sticky;top:0;z-index:30;background:rgba(5,5,6,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--edge)}
+nav{position:sticky;top:0;z-index:30;background:rgba(5,5,6,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--edge)}
 nav .wrap{display:flex;align-items:center;gap:24px;min-height:62px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;font-family:var(--display);font-weight:800;font-stretch:112%}
 .brand svg{width:26px;height:26px;animation:spin 14s linear infinite}
@@ -120,7 +120,7 @@ section{position:relative;padding:110px 0}
 
 /* reveal: visible at rest, gets a soft rise when it enters */
 .rise{animation:rise 1s cubic-bezier(.16,.8,.24,1) both}
-@keyframes rise{from{opacity:.25;transform:translateY(22px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@keyframes rise{from{opacity:.25;transform:translateY(22px)}to{opacity:1;transform:none}}
 
 /* line drawings that draw themselves */
 .draw path,.draw circle,.draw line,.draw rect,.draw polyline{fill:none;stroke-linecap:round;stroke-linejoin:round}
@@ -355,6 +355,17 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
   .spec div{grid-template-columns:1fr;gap:2px}
   .row{grid-template-columns:1fr}
 }
+
+/* phones and touch screens: keep the look, drop the heavy GPU effects */
+@media (max-width:820px),(hover:none){
+  nav{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(5,5,6,.96)}
+  .lights{position:absolute;height:100vh}
+  .lights i{animation:none;opacity:.6}
+  .brand svg,.portrait .frame,.status b,.hero h1 .glow,.tagline .glow,.plan .scan,.scroll-hint::after,.arm .j1,.arm .j2,.arm .j3{animation:none}
+  .portrait .frame{box-shadow:0 20px 40px -20px rgba(0,0,0,.9)}
+  .hero h1 .glow,.tagline .glow{text-shadow:none}
+  .wimg img,.process .plan:nth-child(2) img,.arm .s,.arm .a,.dof .on .thr,.dof .arrow{filter:none}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
   html{scroll-behavior:auto}
@@ -446,15 +457,15 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
 
       <div class="plans">
         <button type="button" class="lit plan c6 ar-wide reveal" data-full="img/mep-ensemble.jpg" data-cap="Mise en plan d'ensemble DeepLook ROV, A3, échelle 1:5, nomenclature de 12 repères">
-          <div class="img"><img src="img/mep-ensemble.jpg" alt="Mise en plan d'ensemble du ROV avec nomenclature"><span class="scan"></span></div>
+          <div class="img"><img decoding="async" loading="lazy" src="img/mep-ensemble.jpg" alt="Mise en plan d'ensemble du ROV avec nomenclature"><span class="scan"></span></div>
           <div class="cap"><span>Plan d'ensemble et nomenclature</span><i>A3 · 1:5 · 12 repères</i></div>
         </button>
         <button type="button" class="lit plan c3 ar-tall reveal" data-full="img/mep-tuyere.jpg" data-cap="Tuyère du propulseur, A4, échelle 1:1, ISO 2768-m">
-          <div class="img"><img src="img/mep-tuyere.jpg" alt="Mise en plan de la tuyère"></div>
+          <div class="img"><img decoding="async" loading="lazy" src="img/mep-tuyere.jpg" alt="Mise en plan de la tuyère"></div>
           <div class="cap"><span>Tuyère du propulseur</span><i>A4 · 1:1 · ISO 2768-m</i></div>
         </button>
         <button type="button" class="lit plan c3 ar-tall reveal" data-full="img/mep-hublot.jpg" data-cap="Mise en plan de la bague de hublot">
-          <div class="img"><img src="img/mep-hublot.jpg" alt="Mise en plan de la bague de hublot"></div>
+          <div class="img"><img decoding="async" loading="lazy" src="img/mep-hublot.jpg" alt="Mise en plan de la bague de hublot"></div>
           <div class="cap"><span>Bague de hublot</span><i>Mise en plan</i></div>
         </button>
       </div>
@@ -465,23 +476,23 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
     <div class="subhead reveal"><div><p class="count">Projets personnels · 3 réalisations</p><h3 style="margin-top:8px">Pièces et assemblages</h3></div><p>Des pièces conçues pour un vrai besoin : remplacer, déplacer, voir.</p></div>
     <div class="works">
       <article class="lit work feature reveal">
-        <button type="button" class="wimg" data-full="img/piece-retroconception.jpg" data-cap="Rétro-conception : pièce endommagée numérisée au scanner laser 3D puis remodélisée sous SOLIDWORKS"><img src="img/cut-retroconception.png" alt="Pièce rétro-conçue modélisée sous SOLIDWORKS"></button>
+        <button type="button" class="wimg" data-full="img/piece-retroconception.jpg" data-cap="Rétro-conception : pièce endommagée numérisée au scanner laser 3D puis remodélisée sous SOLIDWORKS"><img decoding="async" loading="lazy" src="img/cut-retroconception.png" alt="Pièce rétro-conçue modélisée sous SOLIDWORKS"></button>
         <div class="wtxt"><p class="count">Rétro-conception · scanner laser 3D</p><h3>Pièce de remplacement d'une pièce endommagée</h3><p>La pièce d'origine était cassée. Je l'ai numérisée au scanner laser 3D, puis remodélisée sous SOLIDWORKS à partir du nuage de points, avec les cotes reprises sur le scan, pour pouvoir la refabriquer.</p><ul><li>Numérisation 3D</li><li>Reconstruction CAO</li><li>Pièce prête à fabriquer</li></ul></div>
       </article>
       <article class="lit work reveal">
-        <button type="button" class="wimg" data-full="img/piece-conique.jpg" data-cap="Pièce de révolution conique modélisée sous SOLIDWORKS, projet freelance"><img src="img/cut-conique.png" alt="Pièce de révolution conique modélisée sous SOLIDWORKS"></button>
+        <button type="button" class="wimg" data-full="img/piece-conique.jpg" data-cap="Pièce de révolution conique modélisée sous SOLIDWORKS, projet freelance"><img decoding="async" loading="lazy" src="img/cut-conique.png" alt="Pièce de révolution conique modélisée sous SOLIDWORKS"></button>
         <div class="wtxt"><p class="count">Projet freelance · client</p><h3>Pièce de révolution conique</h3><p>Pièce tournée modélisée pour un client : profil conique étagé, gorges, lumière oblongue et perçages, prête pour la mise en plan et l'usinage.</p></div>
       </article>
       <article class="lit work reveal">
-        <button type="button" class="wimg" data-full="img/catamaran.jpg" data-cap="Catamaran solaire : concept présenté en compétition Blue Economy"><img src="img/cut-catamaran.png" alt="Catamaran solaire à toit photovoltaïque, assemblage SOLIDWORKS"></button>
+        <button type="button" class="wimg" data-full="img/catamaran.jpg" data-cap="Catamaran solaire : concept présenté en compétition Blue Economy"><img decoding="async" loading="lazy" src="img/cut-catamaran.png" alt="Catamaran solaire à toit photovoltaïque, assemblage SOLIDWORKS"></button>
         <div class="wtxt"><p class="count">Compétition · Blue Economy</p><h3>Catamaran solaire</h3><p>Concept de bateau à propulsion solaire : deux coques, toit photovoltaïque cintré et propulsion électrique, assemblés sous SOLIDWORKS.</p></div>
       </article>
       <article class="lit work reveal">
-        <button type="button" class="wimg" data-full="img/robot-mecanum.jpg" data-cap="Robot mobile à roues mécanum, assemblage SOLIDWORKS"><img src="img/cut-mecanum.png" alt="Robot mobile à roues mécanum, assemblage SOLIDWORKS"></button>
+        <button type="button" class="wimg" data-full="img/robot-mecanum.jpg" data-cap="Robot mobile à roues mécanum, assemblage SOLIDWORKS"><img decoding="async" loading="lazy" src="img/cut-mecanum.png" alt="Robot mobile à roues mécanum, assemblage SOLIDWORKS"></button>
         <div class="wtxt"><p class="count">Robotique mobile · assemblage</p><h3>Robot à roues mécanum</h3><p>Châssis, motorisation des 4 roues mécanum et plateau élévateur à ciseaux, assemblés sous SOLIDWORKS. Les roues mécanum permettent de se déplacer dans toutes les directions.</p></div>
       </article>
       <article class="lit work reveal">
-        <button type="button" class="wimg" data-full="img/piece-lunettes.jpg" data-cap="Lunettes connectées : monture, caméra déportée et boîtier électronique"><img src="img/cut-lunettes.png" alt="Assemblage de lunettes connectées sous SOLIDWORKS"></button>
+        <button type="button" class="wimg" data-full="img/piece-lunettes.jpg" data-cap="Lunettes connectées : monture, caméra déportée et boîtier électronique"><img decoding="async" loading="lazy" src="img/cut-lunettes.png" alt="Assemblage de lunettes connectées sous SOLIDWORKS"></button>
         <div class="wtxt"><p class="count">Objet connecté · IEEE SIGHT</p><h3>Lunettes connectées</h3><p>Monture, bras de caméra déporté et boîtier pour la carte électronique, ajustés sur un modèle de tête pour vérifier l'ergonomie.</p></div>
       </article>
     </div>
@@ -503,13 +514,13 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
     </div>
 
     <div class="proto">
-      <button type="button" class="lit ph p7 reveal" data-full="img/usinage-tour.jpg" data-cap="Tournage d'une pièce en aluminium sur tour parallèle"><div class="img"><img src="img/usinage-tour.jpg" alt="Tournage d'une pièce en aluminium" loading="lazy"></div><div class="cap"><b>Usinage sur tour parallèle</b><span>Embouts aluminium du corps étanche du ROV.</span></div></button>
-      <button type="button" class="lit ph p5 reveal" data-full="img/usinage-controle.jpg" data-cap="Contrôle d'une pièce usinée selon le plan"><div class="img"><img src="img/usinage-controle.jpg" alt="Pièce aluminium tenue devant sa mise en plan" loading="lazy"></div><div class="cap"><b>Contrôle selon le plan</b><span>Cotes vérifiées sur la mise en plan.</span></div></button>
-      <button type="button" class="lit ph p4 reveal" data-full="img/propulseur-imprime.jpg" data-cap="Propulseur à tuyère imprimé en 3D et assemblé"><div class="img"><img src="img/propulseur-imprime.jpg" alt="Propulseur à tuyère imprimé en 3D" loading="lazy"></div><div class="cap"><b>Propulseur à tuyère</b><span>Conçu sous SOLIDWORKS, imprimé, assemblé.</span></div></button>
-      <button type="button" class="lit ph p4 reveal" data-full="img/aile-dfam.jpg" data-cap="Aile d'avion conçue pour la fabrication additive, prototype de 15 pièces"><div class="img"><img src="img/aile-dfam.jpg" alt="Prototype d'aile imprimé en 3D" loading="lazy"></div><div class="cap"><b>Aile d'avion en DFAM</b><span>Avec l'AJIZ, 2025. 15 pièces imprimées.</span></div></button>
-      <button type="button" class="lit ph p4 reveal" data-full="img/batterie.jpg" data-cap="Pack batterie lithium 4S3P avec BMS 100 A"><div class="img"><img src="img/batterie.jpg" alt="Pack batterie 4S3P" loading="lazy"></div><div class="cap"><b>Pack batterie 4S3P</b><span>Assemblé à la main, BMS 100 A.</span></div></button>
-      <button type="button" class="lit ph p7 reveal" data-full="img/maintenance-fauteuil.jpg" data-cap="Diagnostic et réparation d'un fauteuil roulant électrique"><div class="img"><img src="img/maintenance-fauteuil.jpg" alt="Bassam Sassi réparant un fauteuil roulant électrique" loading="lazy" style="object-position:50% 55%"></div><div class="cap"><b>Maintenance et dépannage</b><span>Diagnostic et réparation d'un fauteuil roulant électrique.</span></div></button>
-      <button type="button" class="lit ph p5 reveal" data-full="img/imprimante-revision.jpg" data-cap="Révision des axes et de la tête d'une imprimante 3D"><div class="img"><img src="img/imprimante-revision.jpg" alt="Imprimante 3D démontée pour révision" loading="lazy"></div><div class="cap"><b>Révision d'imprimante 3D</b><span>Axes, bloc chauffant, passage à Klipper.</span></div></button>
+      <button type="button" class="lit ph p7 reveal" data-full="img/usinage-tour.jpg" data-cap="Tournage d'une pièce en aluminium sur tour parallèle"><div class="img"><img decoding="async" src="img/usinage-tour.jpg" alt="Tournage d'une pièce en aluminium" loading="lazy"></div><div class="cap"><b>Usinage sur tour parallèle</b><span>Embouts aluminium du corps étanche du ROV.</span></div></button>
+      <button type="button" class="lit ph p5 reveal" data-full="img/usinage-controle.jpg" data-cap="Contrôle d'une pièce usinée selon le plan"><div class="img"><img decoding="async" src="img/usinage-controle.jpg" alt="Pièce aluminium tenue devant sa mise en plan" loading="lazy"></div><div class="cap"><b>Contrôle selon le plan</b><span>Cotes vérifiées sur la mise en plan.</span></div></button>
+      <button type="button" class="lit ph p4 reveal" data-full="img/propulseur-imprime.jpg" data-cap="Propulseur à tuyère imprimé en 3D et assemblé"><div class="img"><img decoding="async" src="img/propulseur-imprime.jpg" alt="Propulseur à tuyère imprimé en 3D" loading="lazy"></div><div class="cap"><b>Propulseur à tuyère</b><span>Conçu sous SOLIDWORKS, imprimé, assemblé.</span></div></button>
+      <button type="button" class="lit ph p4 reveal" data-full="img/aile-dfam.jpg" data-cap="Aile d'avion conçue pour la fabrication additive, prototype de 15 pièces"><div class="img"><img decoding="async" src="img/aile-dfam.jpg" alt="Prototype d'aile imprimé en 3D" loading="lazy"></div><div class="cap"><b>Aile d'avion en DFAM</b><span>Avec l'AJIZ, 2025. 15 pièces imprimées.</span></div></button>
+      <button type="button" class="lit ph p4 reveal" data-full="img/batterie.jpg" data-cap="Pack batterie lithium 4S3P avec BMS 100 A"><div class="img"><img decoding="async" src="img/batterie.jpg" alt="Pack batterie 4S3P" loading="lazy"></div><div class="cap"><b>Pack batterie 4S3P</b><span>Assemblé à la main, BMS 100 A.</span></div></button>
+      <button type="button" class="lit ph p7 reveal" data-full="img/maintenance-fauteuil.jpg" data-cap="Diagnostic et réparation d'un fauteuil roulant électrique"><div class="img"><img decoding="async" src="img/maintenance-fauteuil.jpg" alt="Bassam Sassi réparant un fauteuil roulant électrique" loading="lazy" style="object-position:50% 55%"></div><div class="cap"><b>Maintenance et dépannage</b><span>Diagnostic et réparation d'un fauteuil roulant électrique.</span></div></button>
+      <button type="button" class="lit ph p5 reveal" data-full="img/imprimante-revision.jpg" data-cap="Révision des axes et de la tête d'une imprimante 3D"><div class="img"><img decoding="async" src="img/imprimante-revision.jpg" alt="Imprimante 3D démontée pour révision" loading="lazy"></div><div class="cap"><b>Révision d'imprimante 3D</b><span>Axes, bloc chauffant, passage à Klipper.</span></div></button>
     </div>
 
     <div class="metrics">
@@ -534,7 +545,7 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
     </div>
 
     <div class="arm-row">
-      <button type="button" class="lit ph navale reveal" data-full="img/maintenance-navale.jpg" data-cap="Stage OMMP : intervention sur le tableau électrique de la salle des machines du remorqueur « Ibn Ennoaman »"><div class="img"><img src="img/maintenance-navale.jpg" alt="Bassam Sassi en bleu de travail devant le tableau électrique d'un remorqueur" loading="lazy"></div><div class="cap"><b>À bord du remorqueur « Ibn Ennoaman »</b><span>Stage OMMP · tableau électrique de la salle des machines.</span></div></button>
+      <button type="button" class="lit ph navale reveal" data-full="img/maintenance-navale.jpg" data-cap="Stage OMMP : intervention sur le tableau électrique de la salle des machines du remorqueur « Ibn Ennoaman »"><div class="img"><img decoding="async" src="img/maintenance-navale.jpg" alt="Bassam Sassi en bleu de travail devant le tableau électrique d'un remorqueur" loading="lazy"></div><div class="cap"><b>À bord du remorqueur « Ibn Ennoaman »</b><span>Stage OMMP · tableau électrique de la salle des machines.</span></div></button>
 
       <div class="jobs">
         <article class="lit job reveal"><div><div class="when">Déc. 2024 – Janv. 2025</div><div class="where">AJIZ · Zarzis</div></div><div><h3>Optimisation de systèmes robotiques</h3><p>Numérisation par scanner 3D, reconception sous SOLIDWORKS, maintenance d'imprimantes 3D et passage au firmware Klipper.</p></div></article>
@@ -564,7 +575,7 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
         <div><dt>Électronique</dt><dd>Raspberry Pi 4 + Arduino Nano, variateurs ESC</dd></div>
         <div><dt>Contrôle</dt><dd>Régulation PID, liaison Ethernet, tableau de bord PC, manette</dd></div>
         <div><dt>Énergie</dt><dd>Batterie lithium 4S3P, BMS 100 A</dd></div>
-        <div><dt>Vision</dt><dd>Caméra HD, hublot en résine sur mesure</dd></div>
+        <div><dt>Vision</dt><dd>Caméra 4K, hublot en résine sur mesure</dd></div>
         <div><dt>Conception</dt><dd>SOLIDWORKS, simulation CFD, embouts aluminium usinés</dd></div>
         <div><dt>Évolution</dt><dd>Version 1, puis version finale à 6 propulseurs avec propulsion vectorisée</dd></div>
       </dl>
@@ -604,8 +615,8 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
       </div>
     </div>
     <div class="proto" style="margin-top:14px">
-      <button type="button" class="lit ph p5 reveal" data-full="img/rov-final.jpg" data-cap="ROV DeepLook assemblé"><div class="img"><img src="img/rov-final.jpg" alt="ROV assemblé"></div><div class="cap"><b>Prototype final</b><span>6 propulseurs, corps étanche, câble Ethernet.</span></div></button>
-      <button type="button" class="lit plan render ph p7 reveal" data-full="img/rov-v1.jpg" data-cap="Version 1 du ROV, 4 degrés de liberté"><div class="img" style="aspect-ratio:16/10"><img src="img/rov-v1.jpg" alt="Version 1 du ROV"></div><div class="cap"><b>Version 1</b><span>Première architecture, avant le passage à 6 propulseurs et à la propulsion vectorisée.</span></div></button>
+      <button type="button" class="lit ph p5 reveal" data-full="img/rov-final.jpg" data-cap="ROV DeepLook assemblé"><div class="img"><img decoding="async" loading="lazy" src="img/rov-final.jpg" alt="ROV assemblé"></div><div class="cap"><b>Prototype final</b><span>6 propulseurs, corps étanche, câble Ethernet.</span></div></button>
+      <button type="button" class="lit plan render ph p7 reveal" data-full="img/rov-v1.jpg" data-cap="Version 1 du ROV, 4 degrés de liberté"><div class="img" style="aspect-ratio:16/10"><img decoding="async" loading="lazy" src="img/rov-v1.jpg" alt="Version 1 du ROV"></div><div class="cap"><b>Version 1</b><span>Première architecture, avant le passage à 6 propulseurs et à la propulsion vectorisée.</span></div></button>
     </div>
   </div>
 </section>
@@ -641,9 +652,9 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
     </div>
 
         <div class="proto" style="margin-top:28px">
-      <button type="button" class="lit ph p4 reveal" data-full="img/swug-presentation.jpg" data-cap="Présentation lors d'un événement du SOLIDWORKS User Group South Tunisia"><div class="img"><img src="img/swug-presentation.jpg" alt="Bassam Sassi présentant au SOLIDWORKS User Group" loading="lazy" style="object-position:70% 50%"></div><div class="cap"><b>Ambassadeur SWUG South Tunisia</b><span>Présentation lors d'un événement.</span></div></button>
-      <button type="button" class="lit ph p4 reveal" data-full="img/formation-sw.jpg" data-cap="Formation SOLIDWORKS à la Maison Digitale"><div class="img"><img src="img/formation-sw.jpg" alt="Formation SOLIDWORKS animée par Bassam Sassi" loading="lazy"></div><div class="cap"><b>Formateur SOLIDWORKS</b><span>Séance à la Maison Digitale.</span></div></button>
-      <button type="button" class="lit ph p4 reveal" data-full="img/equipe-prix.jpg" data-cap="Remise de prix en compétition, en équipe"><div class="img"><img src="img/equipe-prix.jpg" alt="Équipe lauréate avec trophée" loading="lazy"></div><div class="cap"><b>Travail en équipe</b><span>Remise de prix en compétition.</span></div></button>
+      <button type="button" class="lit ph p4 reveal" data-full="img/swug-presentation.jpg" data-cap="Présentation lors d'un événement du SOLIDWORKS User Group South Tunisia"><div class="img"><img decoding="async" src="img/swug-presentation.jpg" alt="Bassam Sassi présentant au SOLIDWORKS User Group" loading="lazy" style="object-position:70% 50%"></div><div class="cap"><b>Ambassadeur SWUG South Tunisia</b><span>Présentation lors d'un événement.</span></div></button>
+      <button type="button" class="lit ph p4 reveal" data-full="img/formation-sw.jpg" data-cap="Formation SOLIDWORKS à la Maison Digitale"><div class="img"><img decoding="async" src="img/formation-sw.jpg" alt="Formation SOLIDWORKS animée par Bassam Sassi" loading="lazy"></div><div class="cap"><b>Formateur SOLIDWORKS</b><span>Séance à la Maison Digitale.</span></div></button>
+      <button type="button" class="lit ph p4 reveal" data-full="img/equipe-prix.jpg" data-cap="Remise de prix en compétition, en équipe"><div class="img"><img decoding="async" src="img/equipe-prix.jpg" alt="Équipe lauréate avec trophée" loading="lazy"></div><div class="cap"><b>Travail en équipe</b><span>Remise de prix en compétition.</span></div></button>
     </div>
 
     <div class="tl reveal" style="margin-top:44px">
@@ -651,7 +662,7 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
       <div><span class="when">2023 – 2026</span><span><b>Licence génie mécanique, parcours mécatronique, ISET Djerba.</b> Mention Très Bien, 4<sup>e</sup> du département.</span></div>
       <div><span class="when">2025 –</span><span><b>Ambassadeur, SOLIDWORKS User Group South Tunisia.</b> Ateliers, dont celui de l'ISET Gabès.</span></div>
       <div><span class="when">2024 –</span><span><b>Fondateur, club de robotique SICADA.</b></span></div>
-      <div><span class="when">2023 –</span><span><b>Formateur robotique</b> à l'AJIZ et au Club Idriss : plus de 60 élèves.</span></div>
+      <div><span class="when">2023 –</span><span><b>Formateur robotique</b> à l'AJIZ et au Club Idriss : plus de 80 élèves.</span></div>
       <div><span class="when">Engagement</span><span><b>Bureau JCI, Jeune Ingénieur, IEEE.</b> Co-organisation de Zarzis Robots 2.0.</span></div>
     </div>
   </div>
@@ -670,10 +681,10 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
       <div class="sec-num" aria-hidden="true">06</div>
     </div>
     <div class="certs">
-      <article class="lit cert main reveal"><button type="button" data-full="img/cswp-1.jpg" data-cap="SOLIDWORKS Professional (CSWP), ID C-WS3Y5ZEV6T"><img src="img/cswp-1.jpg" alt="Certificat CSWP"></button><div class="t"><h3>SOLIDWORKS Professional</h3><span class="dim">CSWP · 18 nov. 2025</span><span class="id">C-WS3Y5ZEV6T</span></div></article>
-      <article class="lit cert reveal"><button type="button" data-full="img/cswa-1.jpg" data-cap="SOLIDWORKS Associate (CSWA), ID C-KDYWJ9B536"><img src="img/cswa-1.jpg" alt="Certificat CSWA"></button><div class="t"><h3>SOLIDWORKS Associate</h3><span class="dim">CSWA · 16 févr. 2025</span><span class="id">C-KDYWJ9B536</span></div></article>
-      <article class="lit cert reveal"><button type="button" data-full="img/py2-1.jpg" data-cap="DataCamp, Intermediate Python"><img src="img/py2-1.jpg" alt="Certificat Intermediate Python"></button><div class="t"><h3>Intermediate Python</h3><span class="dim">DataCamp · 25 juin 2025</span></div></article>
-      <article class="lit cert reveal"><button type="button" data-full="img/py1-1.jpg" data-cap="DataCamp, Introduction to Python"><img src="img/py1-1.jpg" alt="Certificat Introduction to Python"></button><div class="t"><h3>Introduction to Python</h3><span class="dim">DataCamp · 15 juin 2025</span></div></article>
+      <article class="lit cert main reveal"><button type="button" data-full="img/cswp-1.jpg" data-cap="SOLIDWORKS Professional (CSWP), ID C-WS3Y5ZEV6T"><img decoding="async" loading="lazy" src="img/cswp-1.jpg" alt="Certificat CSWP"></button><div class="t"><h3>SOLIDWORKS Professional</h3><span class="dim">CSWP · 18 nov. 2025</span><span class="id">C-WS3Y5ZEV6T</span></div></article>
+      <article class="lit cert reveal"><button type="button" data-full="img/cswa-1.jpg" data-cap="SOLIDWORKS Associate (CSWA), ID C-KDYWJ9B536"><img decoding="async" loading="lazy" src="img/cswa-1.jpg" alt="Certificat CSWA"></button><div class="t"><h3>SOLIDWORKS Associate</h3><span class="dim">CSWA · 16 févr. 2025</span><span class="id">C-KDYWJ9B536</span></div></article>
+      <article class="lit cert reveal"><button type="button" data-full="img/py2-1.jpg" data-cap="DataCamp, Intermediate Python"><img decoding="async" loading="lazy" src="img/py2-1.jpg" alt="Certificat Intermediate Python"></button><div class="t"><h3>Intermediate Python</h3><span class="dim">DataCamp · 25 juin 2025</span></div></article>
+      <article class="lit cert reveal"><button type="button" data-full="img/py1-1.jpg" data-cap="DataCamp, Introduction to Python"><img decoding="async" loading="lazy" src="img/py1-1.jpg" alt="Certificat Introduction to Python"></button><div class="t"><h3>Introduction to Python</h3><span class="dim">DataCamp · 15 juin 2025</span></div></article>
     </div>
     <div class="chips"><span class="chip">TCF Français B2 · 434</span><span class="chip">LabVIEW</span><span class="chip">Design Thinking &amp; Lean Canvas</span><span class="chip">Summer camp IA 2023</span></div>
 
@@ -756,11 +767,13 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- hero: blueprint workshop with meshing gears ---------- */
-  var cv=document.getElementById('workshop'),cx=cv.getContext('2d'),W,H,dpr=Math.min(window.devicePixelRatio||1,2),t0=performance.now();
+  var cv=document.getElementById('workshop'),cx=cv&&cv.getContext&&cv.getContext('2d'),W,H,t0=performance.now();
+  var lite=(window.matchMedia&&(window.matchMedia('(max-width:820px)').matches||window.matchMedia('(hover:none)').matches));
+  var dpr=lite?1:Math.min(window.devicePixelRatio||1,2),visible=true,last=0;
   function size(){W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);}
   function gear(x,y,r,n,a,col,alpha){
     var th=r*0.16, ri=r-th, step=Math.PI*2/n;
-    cx.save();cx.translate(x,y);cx.rotate(a);cx.globalAlpha=alpha;cx.strokeStyle=col;cx.lineWidth=1.2;cx.shadowColor=col;cx.shadowBlur=10;
+    cx.save();cx.translate(x,y);cx.rotate(a);cx.globalAlpha=alpha;cx.strokeStyle=col;cx.lineWidth=1.2;if(!lite){cx.shadowColor=col;cx.shadowBlur=10;}
     cx.beginPath();
     for(var i=0;i<n;i++){var b=i*step;
       cx.lineTo(Math.cos(b)*ri,Math.sin(b)*ri);
@@ -783,6 +796,7 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
     cx.font='11px "JetBrains Mono",monospace';cx.fillText(label,(x1+x2)/2+6,(y1+y2)/2-6);cx.restore();
   }
   function frame(now){
+    if(!reduce){ if(!visible){requestAnimationFrame(frame);return;} if(lite&&now-last<33){requestAnimationFrame(frame);return;} last=now; }
     var t=(now-t0)/1000;
     cx.clearRect(0,0,W,H);
     // fading grid
@@ -817,8 +831,12 @@ footer{padding:40px 0 50px;font-family:var(--mono);font-size:.74rem;color:var(--
     cx.globalAlpha=1;
     if(!reduce) requestAnimationFrame(frame);
   }
+  if(cx){
+  if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting;}).observe(cv);}
+  document.addEventListener('visibilitychange',function(){visible=!document.hidden;});
   size();requestAnimationFrame(frame);
   window.addEventListener('resize',function(){size();if(reduce)requestAnimationFrame(frame);});
+  }
 
   /* ---------- cursor light on cards ---------- */
   document.querySelectorAll('.lit').forEach(function(el){

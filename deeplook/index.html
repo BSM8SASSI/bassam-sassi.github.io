@@ -28,7 +28,7 @@ section{padding:110px 0;position:relative}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:background .3s,box-shadow .3s}
-nav.scrolled{background:rgba(2,12,24,.88);backdrop-filter:blur(12px);box-shadow:0 4px 30px rgba(0,0,0,.25)}
+nav.scrolled{background:rgba(2,12,24,.88);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 4px 30px rgba(0,0,0,.25)}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:72px}
 .logo{color:#fff;font-weight:800;font-size:1.35rem;text-decoration:none;display:flex;align-items:center;gap:10px}
 .logo i{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--cyan),var(--teal) 45%,var(--deep) 100%);box-shadow:0 0 18px rgba(20,211,192,.6)}
@@ -56,7 +56,7 @@ header::after{content:"";position:absolute;inset:0;background:repeating-linear-g
 .hero-img{position:relative}
 .hero-img::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(20,211,192,.45),transparent 65%);filter:blur(40px);animation:pulse 5s ease-in-out infinite}
 .hero-img img{position:relative;border-radius:24px;animation:float 6s ease-in-out infinite;box-shadow:0 30px 80px rgba(0,0,0,.5);mix-blend-mode:normal}
-.hero-img small{position:absolute;bottom:-14px;left:24px;background:rgba(2,12,24,.85);border:1px solid rgba(20,211,192,.4);padding:8px 14px;border-radius:999px;font-size:.8rem;color:#cfe3f0;backdrop-filter:blur(6px)}
+.hero-img small{position:absolute;bottom:-14px;left:24px;background:rgba(2,12,24,.85);border:1px solid rgba(20,211,192,.4);padding:8px 14px;border-radius:999px;font-size:.8rem;color:#cfe3f0;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 @keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-18px) rotate(1deg)}}
 @keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
 .scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;color:#7d97ab;font-size:.8rem;text-align:center}
@@ -195,6 +195,12 @@ footer a{color:#9fb6c8}
   section{padding:80px 0}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+@media (max-width:820px),(hover:none){
+  nav.scrolled,.hero-img small{-webkit-backdrop-filter:none;backdrop-filter:none}
+  nav.scrolled{background:rgba(2,12,24,.97)}
+  .hero-img::before{filter:none;animation:none}
+  *{animation-iteration-count:1!important}
+}
 </style>
 </head>
 <body>
@@ -264,7 +270,7 @@ footer a{color:#9fb6c8}
       <div class="new"><h4>DeepLook</h4><p>No one in the water, longer missions, 4K video and a digital report every time.</p></div>
     </div>
   </div>
-  <div class="reveal d2"><img src="../img/rov-final.jpg" alt="Assembled DeepLook ROV prototype with 6 thrusters"></div>
+  <div class="reveal d2"><img decoding="async" loading="lazy" src="../img/rov-final.jpg" alt="Assembled DeepLook ROV prototype with 6 thrusters"></div>
 </div></section>
 
 <section id="market"><div class="wrap">
@@ -388,13 +394,13 @@ footer a{color:#9fb6c8}
   <h2 class="reveal">Designed, modelled and built in-house.</h2>
   <p class="lead reveal">SOLIDWORKS design, standard engineering drawings, 3D-printed thrusters, onboard electronics and software. Every part of the first prototype was made by the team.</p>
   <div class="gallery">
-    <figure class="g1 reveal"><img src="../img/rov-v1.jpg" alt="3D render of the ROV"><figcaption>Next-generation hull · SOLIDWORKS render</figcaption></figure>
-    <figure class="g2 reveal d1"><img src="../img/rov-final.jpg" alt="Assembled ROV"><figcaption>Working prototype v1: waterproof tube and 6 thrusters</figcaption></figure>
-    <figure class="g3 reveal"><img src="../img/propulseur-imprime.jpg" alt="3D-printed thruster"><figcaption>3D-printed ducted thruster</figcaption></figure>
-    <figure class="g4 reveal d1"><img src="../img/batterie.jpg" alt="Battery pack"><figcaption>4S3P battery pack</figcaption></figure>
-    <figure class="g5 reveal d2"><img src="../img/mep-tuyere.jpg" alt="Nozzle drawing"><figcaption>Thruster nozzle drawing</figcaption></figure>
-    <figure class="g6 reveal"><img src="../img/mep-ensemble.jpg" alt="DeepLook ROV assembly drawing"><figcaption>DeepLook ROV assembly drawing and bill of materials</figcaption></figure>
-    <figure class="g7 reveal d1"><img src="../img/mep-hublot.jpg" alt="Porthole ring drawing"><figcaption>Camera porthole ring</figcaption></figure>
+    <figure class="g1 reveal"><img decoding="async" loading="lazy" src="../img/rov-v1.jpg" alt="3D render of the ROV"><figcaption>Next-generation hull · SOLIDWORKS render</figcaption></figure>
+    <figure class="g2 reveal d1"><img decoding="async" loading="lazy" src="../img/rov-final.jpg" alt="Assembled ROV"><figcaption>Working prototype v1: waterproof tube and 6 thrusters</figcaption></figure>
+    <figure class="g3 reveal"><img decoding="async" loading="lazy" src="../img/propulseur-imprime.jpg" alt="3D-printed thruster"><figcaption>3D-printed ducted thruster</figcaption></figure>
+    <figure class="g4 reveal d1"><img decoding="async" loading="lazy" src="../img/batterie.jpg" alt="Battery pack"><figcaption>4S3P battery pack</figcaption></figure>
+    <figure class="g5 reveal d2"><img decoding="async" loading="lazy" src="../img/mep-tuyere.jpg" alt="Nozzle drawing"><figcaption>Thruster nozzle drawing</figcaption></figure>
+    <figure class="g6 reveal"><img decoding="async" loading="lazy" src="../img/mep-ensemble.jpg" alt="DeepLook ROV assembly drawing"><figcaption>DeepLook ROV assembly drawing and bill of materials</figcaption></figure>
+    <figure class="g7 reveal d1"><img decoding="async" loading="lazy" src="../img/mep-hublot.jpg" alt="Porthole ring drawing"><figcaption>Camera porthole ring</figcaption></figure>
   </div>
   <div class="specs">
     <div class="spec reveal"><b>4K</b><span>live camera through the tether</span></div>
@@ -433,9 +439,9 @@ footer a{color:#9fb6c8}
     <a class="btn dark-btn" href="../" target="_blank" rel="noopener">See full portfolio →</a>
     <a class="btn ghost" style="color:var(--navy);border-color:#b8c8d6" href="../cv/CV_Bassam_Sassi.pdf" target="_blank" rel="noopener">Download CV</a>
     <div class="mini">
-      <img src="../img/swug-presentation.jpg" alt="Presenting at the SOLIDWORKS User Group">
-      <img src="../img/equipe-prix.jpg" alt="Award-winning team with trophy">
-      <img src="../img/maintenance-navale.jpg" alt="Naval maintenance on a tugboat" style="object-position:50% 30%">
+      <img decoding="async" loading="lazy" src="../img/swug-presentation.jpg" alt="Presenting at the SOLIDWORKS User Group">
+      <img decoding="async" loading="lazy" src="../img/equipe-prix.jpg" alt="Award-winning team with trophy">
+      <img decoding="async" loading="lazy" src="../img/maintenance-navale.jpg" alt="Naval maintenance on a tugboat" style="object-position:50% 30%">
     </div>
   </div>
 </div></section>
@@ -455,7 +461,7 @@ footer a{color:#9fb6c8}
 
 <footer>© 2026 DeepLook · Toulon, France · <a href="../">Bassam Sassi's portfolio</a> · Market figures: Eurostat (2024), GFCM/FAO (2025)</footer>
 
-<div id="lb"><img alt=""></div>
+<div id="lb"><img decoding="async" loading="lazy" alt=""></div>
 
 <script>
 // nav background on scroll
